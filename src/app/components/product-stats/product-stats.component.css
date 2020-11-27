@@ -1,0 +1,12 @@
+.flex-container {
+  display: flex;
+  align-items: normal;
+  justify-content: normal;
+}
+
+.flex-container > app-emoji {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}

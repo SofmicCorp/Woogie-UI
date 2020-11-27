@@ -1,0 +1,21 @@
+
+.emoji-container{
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  border-right-color: gray;
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+img{
+  padding-top: 5px;
+  width: 29px;
+  object-fit: contain;
+}
+
+.inline{
+  margin-left: 4px;
+  display: inline-block;
+  vertical-align: middle;
+}
