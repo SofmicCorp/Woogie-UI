@@ -8,7 +8,7 @@ import { ReactionComponent } from './components/product/product-stats/emoji/reac
 import {MatListModule} from '@angular/material/list';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { ProductComponent } from './components/product/product.component';
-import { SearchProductsComponent } from './components/search-products/search-products.component';
+import { SearchComponent } from './components/search/search.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -39,7 +39,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     ProductReactionsComponent,
     ReactionComponent,
     ProductComponent,
-    SearchProductsComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

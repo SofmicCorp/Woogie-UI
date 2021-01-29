@@ -1,0 +1,23 @@
+mat-form-field.mat-form-field {
+  font-size: 14px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.searchBar{
+  border-color: black;
+  color: black;
+}
+
+mat-grid-tile .mat-figure {
+  justify-content: flex-start !important ;
+  align-items: flex-start !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  color: rebeccapurple;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: black;
+}

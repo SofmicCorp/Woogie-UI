@@ -10,7 +10,7 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   searchProducts(params: any){
-    return this.http.get<{products: Product[]}>(environment.woogieBackUrl + productsRoutesList.searchProducts, {params});
+    return this.http.get<Product[]>(environment.woogieBackUrl + productsRoutesList.searchProducts, {params});
   }
 
 }

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ProductsReactionsClickedMap} from '../../classes/product/productsReactionsClickedMap';
+import {Product} from '../../classes/product/product';
 
 @Component({
   selector: 'app-product',
@@ -8,8 +9,8 @@ import {ProductsReactionsClickedMap} from '../../classes/product/productsReactio
 })
 export class ProductComponent implements OnInit {
 
-  @Input() image;
-  @Input() productsReactionsClickedMap: ProductsReactionsClickedMap;
+  @Input() product: Product;
+  productsReactionsClickedMap: ProductsReactionsClickedMap;
 
   constructor() { }
 
