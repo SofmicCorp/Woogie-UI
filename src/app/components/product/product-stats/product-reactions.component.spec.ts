@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmojiComponent } from './emoji.component';
+import { ProductReactionsComponent } from './product-reactions.component';
 
-describe('EmojiComponent', () => {
-  let component: EmojiComponent;
-  let fixture: ComponentFixture<EmojiComponent>;
+describe('ProductStatsComponent', () => {
+  let component: ProductReactionsComponent;
+  let fixture: ComponentFixture<ProductReactionsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmojiComponent ]
+      declarations: [ ProductReactionsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EmojiComponent);
+    fixture = TestBed.createComponent(ProductReactionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
