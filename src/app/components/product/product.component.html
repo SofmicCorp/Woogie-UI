@@ -6,5 +6,7 @@
     <p>{{product.totalPrice + "$"}}</p>
     <p>{{"Free Shipping"}}</p>
   </div>
-  <div class="item5">reactions</div>
+  <div class="item5">
+    <app-product-stats [reactionsStats]="product.reactions" (createReaction)="createReaction($event)" (inactiveReaction)="inactiveReaction()"></app-product-stats>
+  </div>
 </div>

@@ -1,6 +1,10 @@
 <div class="flex-container">
-  <app-emoji [type]="'loved'" [imgPath]="'assets/svg/loved.svg'" [reactionCount]="productsReactionsClickedMap.loved.reactionCount" [hoverColor]="'red'" [onClickFather]="onClicked"></app-emoji>
-  <app-emoji [type]="'hated'" [imgPath]="'assets/svg/poop.svg'" [reactionCount]="productsReactionsClickedMap.hated.reactionCount" [hoverColor]="'brown'" [onClickFather]="onClicked"></app-emoji>
-  <app-emoji [type]="'interested'" [imgPath]="'assets/img/interested.jpg'" [reactionCount]="productsReactionsClickedMap.interested.reactionCount" [hoverColor]="'yellow'" [onClickFather]="onClicked"></app-emoji>
-  <app-emoji [type]="'bought'" [imgPath]="'assets/img/bought.jpeg'" [reactionCount]="productsReactionsClickedMap.bought.reactionCount" [hoverColor]="'green'" [onClickFather]="onClicked"></app-emoji>
+  <app-emoji [reactionType]="'loved'" [imgPath]="'assets/svg/loved.svg'" [reactionCount]="3" [hoverColor]="'red'"
+             (clickFather)="onClicked($event)" [reactionsStats]="reactionsStats"></app-emoji>
+  <app-emoji [reactionType]="'hated'" [imgPath]="'assets/svg/poop.svg'" [reactionCount]="12" [hoverColor]="'brown'"
+             (clickFather)="onClicked($event)" [reactionsStats]="reactionsStats"></app-emoji>
+  <app-emoji [reactionType]="'interested'" [imgPath]="'assets/img/interested.jpg'" [reactionCount]="15" [hoverColor]="'yellow'"
+             (clickFather)="onClicked($event)" [reactionsStats]="reactionsStats"></app-emoji>
+  <app-emoji [reactionType]="'bought'" [imgPath]="'assets/img/bought.jpeg'" [reactionCount]="1" [hoverColor]="'green'"
+             (clickFather)="onClicked($event)" [reactionsStats]="reactionsStats"></app-emoji>
 </div>

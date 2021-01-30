@@ -1,7 +1,7 @@
 <div class="emoji-container" (mouseover)="onHover()" (mouseout)="onOut()" (click)="onClick()"
-     [matTooltip]="type" [matTooltipPosition]="'below'"
+     [matTooltip]="reactionType" [matTooltipPosition]="'below'"
      aria-label="Button that displays a tooltip in various positions"
      [ngStyle]="{background: color}" >
   <span class="inline"><img src="{{imgPath}}"></span>
-  <span class="inline">{{reactionCount}}</span>
+  <span class="inline">{{reactionsStats[reactionType]}}</span>
 </div>

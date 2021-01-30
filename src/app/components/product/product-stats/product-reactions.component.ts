@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ProductsReactionsClickedMap} from '../../../classes/product/productsReactionsClickedMap';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ReactionsStats} from '../../../classes/reaction/reactions-stats';
+import {ReactionsEnum} from '../../../classes/reaction/reactions-enum';
 
 @Component({
   selector: 'app-product-stats',
@@ -8,26 +9,37 @@ import {ProductsReactionsClickedMap} from '../../../classes/product/productsReac
 })
 export class ProductReactionsComponent implements OnInit {
 
-  @Input() productsReactionsClickedMap: ProductsReactionsClickedMap;
+  @Input() reactionsStats: ReactionsStats;
+  @Output() createReaction: EventEmitter<ReactionsEnum> = new EventEmitter();
+  @Output() inactiveReaction: EventEmitter<ReactionsEnum> = new EventEmitter();
+  lastReactionType: ReactionsEnum;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.lastReactionType = this.reactionsStats.type;
+    console.log(this.reactionsStats);
   }
 
-  onClicked(key: string, value: boolean){
-    if (this.productsReactionsClickedMap[key].clicked){
-      this.productsReactionsClickedMap[key].clicked = false;
-      return;
-    }
-    Object.keys(this.productsReactionsClickedMap).forEach((type ) => {
-      if (this.productsReactionsClickedMap[type].clicked){
-        this.productsReactionsClickedMap[type].clicked = false;
-        this.productsReactionsClickedMap[type].reactionCount--;
+  onClicked(reactionType: ReactionsEnum) {
+    if (this.reactionsStats.isReacted){
+      if (this.lastReactionType === reactionType){
+        this.reactionsStats[this.lastReactionType]--;
+        this.reactionsStats.isReacted = false;
+        this.lastReactionType = null;
+        this.reactionsStats.type = null;
+        this.inactiveReaction.emit();
+        return;
       }
-    });
-    this.productsReactionsClickedMap[key].clicked = value;
-    this.productsReactionsClickedMap[key].reactionCount++;
+      this.reactionsStats[this.lastReactionType]--;
+    }
+    this.reactionsStats[reactionType]++;
+    this.lastReactionType = reactionType;
+    this.reactionsStats.isReacted = true;
+    this.reactionsStats.type = reactionType;
+    this.createReaction.emit(reactionType);
   }
+
+
 
 }
