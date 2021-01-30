@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Product} from '../../classes/product/product';
-import {HttpService} from '../../services/http.service';
-import {Reaction} from '../../classes/reaction/reaction';
-import {ReactionsEnum} from '../../classes/reaction/reactions-enum';
+import {Product} from '../../../classes/product/product';
+import {HttpService} from '../../../services/http.service';
+import {Reaction} from '../../../classes/reaction/reaction';
+import {ReactionsEnum} from '../../../classes/reaction/reactions-enum';
 
 @Component({
   selector: 'app-product',

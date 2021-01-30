@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
-import { ProductReactionsComponent } from './components/product/product-stats/product-reactions.component';
-import { ReactionComponent } from './components/product/product-stats/emoji/reaction.component';
+import { ProductReactionsComponent } from './components/main-nav/product/product-stats/product-reactions.component';
+import { ReactionComponent } from './components/main-nav/product/product-stats/emoji/reaction.component';
 import {MatListModule} from '@angular/material/list';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import { ProductComponent } from './components/product/product.component';
-import { SearchComponent } from './components/search/search.component';
+import { ProductComponent } from './components/main-nav/product/product.component';
+import { SearchComponent } from './components/main-nav/search/search.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -32,6 +32,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MainNavComponent } from './components/main-nav/main-nav.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     ReactionComponent,
     ProductComponent,
     SearchComponent,
+    MainNavComponent,
   ],
   imports: [
     BrowserModule,
