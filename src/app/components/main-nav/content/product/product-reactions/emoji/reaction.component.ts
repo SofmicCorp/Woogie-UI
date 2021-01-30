@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ProductReactionsService} from '../product-reactions.service';
-import {ReactionsEnum} from '../../../../../classes/reaction/reactions-enum';
-import {ReactionsStats} from '../../../../../classes/reaction/reactions-stats';
+import {ReactionsEnum} from '../../../../../../classes/reaction/reactions-enum';
+import {ReactionsStats} from '../../../../../../classes/reaction/reactions-stats';
 
 @Component({
   selector: 'app-emoji',

@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {ReactionsStats} from '../../../../classes/reaction/reactions-stats';
-import {ReactionsEnum} from '../../../../classes/reaction/reactions-enum';
+import {ReactionsStats} from '../../../../../classes/reaction/reactions-stats';
+import {ReactionsEnum} from '../../../../../classes/reaction/reactions-enum';
 
 @Component({
   selector: 'app-product-stats',

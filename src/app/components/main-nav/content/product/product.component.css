@@ -1,6 +1,6 @@
-.item1 { grid-area: retailImage; }
+.item1 { grid-area: retailImage; padding-top: 10px; padding-right: 10px}
 .item2 { grid-area: image; }
-.item3 { grid-area: name;}
+.item3 { grid-area: name; padding-top: 10px}
 .item5 { grid-area: reactions; }
 
 .grid-container {
@@ -10,10 +10,11 @@
     'image image image reactions reactions reactions reactions reactions';
   grid-gap: 10px;
   background-color: white;
-  padding: 10px;
-  width: 95%;
+  width: 100%;
   height: 95%;
   border-radius: 25px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1), 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
 .grid-container > div {
@@ -32,4 +33,9 @@ img {
 
 .productName{
   font-weight: bold;
+}
+
+.retailImage{
+  height: 38px;
+  width: 94px;
 }

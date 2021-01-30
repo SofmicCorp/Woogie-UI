@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
-import { ProductReactionsComponent } from './components/main-nav/product/product-stats/product-reactions.component';
-import { ReactionComponent } from './components/main-nav/product/product-stats/emoji/reaction.component';
+import { ProductReactionsComponent } from './components/main-nav/content/product/product-reactions/product-reactions.component';
+import { ReactionComponent } from './components/main-nav/content/product/product-reactions/emoji/reaction.component';
 import {MatListModule} from '@angular/material/list';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import { ProductComponent } from './components/main-nav/product/product.component';
-import { SearchComponent } from './components/main-nav/search/search.component';
+import { ProductComponent } from './components/main-nav/content/product/product.component';
+import { SearchComponent } from './components/main-nav/content/search/search.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -33,6 +33,10 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MainNavComponent } from './components/main-nav/main-nav.component';
+import { HeaderContentComponent } from './components/main-nav/header-content/header-content.component';
+import { NotificationComponent } from './components/main-nav/header-content/notification/notification.component';
+import { ProfileComponent } from './components/main-nav/header-content/profile/profile.component';
+import { LogoutComponent } from './components/main-nav/header-content/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +46,10 @@ import { MainNavComponent } from './components/main-nav/main-nav.component';
     ProductComponent,
     SearchComponent,
     MainNavComponent,
+    HeaderContentComponent,
+    NotificationComponent,
+    ProfileComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,12 @@
+.mat-list-item{
+  display: inline-block;
+  margin: 0 13px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+img{
+  max-height: 30px;
+  position: center;
+}
+

@@ -5,7 +5,7 @@
   </mat-form-field>
 </form>
 
-<mat-grid-list class="mercuryTabsGrid" cols="2" rowHeight="240px" gutterSize="5px">
+<mat-grid-list cols="1" rowHeight="240px" gutterSize="5px">
   <mat-grid-tile *ngFor="let product of products">
     <app-product [product]="product" style="width: 100%; height: 100%"></app-product>
   </mat-grid-tile>

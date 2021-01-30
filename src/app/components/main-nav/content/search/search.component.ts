@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {HttpService} from '../../../services/http.service';
-import {Product} from '../../../classes/product/product';
+import {HttpService} from '../../../../services/http.service';
+import {Product} from '../../../../classes/product/product';
 
 enum SearchType {
   PRODUCTS = 'products',

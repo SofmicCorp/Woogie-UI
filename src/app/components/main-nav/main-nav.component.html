@@ -1,1 +1,38 @@
-<p>main-nav works!</p>
+<mat-toolbar style="background-color: white">
+  <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <span class="logo">Woogie</span>
+  <app-header-content class="app-header-content"></app-header-content>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav #drawer class="sidenav-left"
+               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+               [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(isHandset$ | async) === false">
+
+    <mat-nav-list>
+    <!-- Left Sidebar content-->
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav opened mode="side" position="end" class="sidenav-right">
+
+    <mat-nav-list>
+      <!-- Right Sidebar content-->
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <app-search></app-search>
+    <!--    <router-outlet></router-outlet> &lt;!&ndash;Content Here&ndash;&gt;-->
+
+  </mat-sidenav-content>
+
+
+</mat-sidenav-container>
