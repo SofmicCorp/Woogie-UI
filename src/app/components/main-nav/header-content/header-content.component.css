@@ -7,7 +7,8 @@
 
 .left-container{
   display: inline;
-  left: 0;
+  display: inline-block;
+  left: 12%;
   position: absolute;
   width: 50%;
   top: 50%;
