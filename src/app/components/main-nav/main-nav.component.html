@@ -14,8 +14,8 @@
                [opened]="(isHandset$ | async) === false">
 
     <mat-nav-list>
+      <!-- Left Sidebar content-->
       <app-sidebar-content></app-sidebar-content>
-    <!-- Left Sidebar content-->
     </mat-nav-list>
 
   </mat-sidenav>
@@ -30,7 +30,6 @@
 
   <mat-sidenav-content>
 
-<!--    <app-search></app-search>-->
     <router-outlet></router-outlet> <!--Content Here-->
 
   </mat-sidenav-content>
