@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Product} from '../classes/product/product';
-import {productsRoutesList} from '../constants/products-routes-list';
+import {productsRoutesList} from '../constants/woogie-back-routes/products-routes-list';
 import {Reaction} from '../classes/reaction/reaction';
 
 @Injectable({providedIn: 'root'})

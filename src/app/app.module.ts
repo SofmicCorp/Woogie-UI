@@ -30,13 +30,16 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { HeaderContentComponent } from './components/main-nav/header-content/header-content.component';
 import { NotificationComponent } from './components/main-nav/header-content/notification/notification.component';
 import { ProfileComponent } from './components/main-nav/header-content/profile/profile.component';
 import { LogoutComponent } from './components/main-nav/header-content/logout/logout.component';
+import { UserItemComponent } from './components/main-nav/sidebar-content/user-item/user-item.component';
+import { SidebarItemComponent } from './components/main-nav/sidebar-content/sidebar-item/sidebar-item.component';
+import { SidebarContentComponent } from './components/main-nav/sidebar-content/sidebar-content.component';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -50,8 +53,12 @@ import { LogoutComponent } from './components/main-nav/header-content/logout/log
     NotificationComponent,
     ProfileComponent,
     LogoutComponent,
+    UserItemComponent,
+    SidebarItemComponent,
+    SidebarContentComponent,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,

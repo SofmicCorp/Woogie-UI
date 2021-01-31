@@ -1,8 +1,10 @@
 <form class="search-form" [formGroup]="myForm">
-  <mat-form-field appearance="outline" class="searchBar">
-    <input type="text" placeholder="Search.." aria-label="Number" matInput formControlName="q">
-    <mat-icon matSuffix style="cursor: pointer" (click)="onSearchClick()">search</mat-icon>
-  </mat-form-field>
+  <mat-card class="searchCard">
+    <mat-form-field appearance="outline" class="searchBar">
+      <input type="text" placeholder="Search.." matInput formControlName="q">
+      <mat-icon matSuffix style="cursor: pointer" (click)="onSearchClick()">search</mat-icon>
+    </mat-form-field>
+  </mat-card>
 </form>
 
 <mat-grid-list cols="1" rowHeight="240px" gutterSize="5px">

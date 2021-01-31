@@ -1,0 +1,32 @@
+.mat-list-item{
+  font-size:12px;
+  width: 100%;
+  margin-bottom: 10px;
+  padding-top: 5px;
+  border-radius: 10px;
+}
+
+.active{
+  background-color:#001e99 !important;
+}
+
+.active a{
+  color: white !important;
+}
+
+.roundedShape{
+  padding: 1%;
+  border-radius: 50%;
+  background-color: #f2f7ff;
+}
+
+img{
+  width: 29px;
+  height: 27px;
+  object-fit: contain;
+
+}
+
+.noHover{
+  pointer-events: none;
+}
