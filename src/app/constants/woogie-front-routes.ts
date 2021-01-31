@@ -3,5 +3,6 @@ export const WoogieFrontRoutes = {
   callback: 'callback',
   root: "\'\'",
   home: 'home',
-  products: 'products'
+  products: 'products',
+  feed: 'feed'
 };
