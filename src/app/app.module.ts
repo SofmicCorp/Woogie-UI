@@ -42,6 +42,9 @@ import { SidebarContentComponent } from './components/main-nav/sidebar-content/s
 import {AppRoutingModule} from './app-routing.module';
 import { ProductsListComponent } from './components/main-nav/content/products-list/products-list.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { UsersListComponent } from './components/main-nav/content/users-list/users-list.component';
+import { UserComponent } from './components/main-nav/content/users-list/user/user.component';
+import { FollowButtonComponent } from './components/shared/follow-button/follow-button.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +62,9 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     SidebarItemComponent,
     SidebarContentComponent,
     ProductsListComponent,
+    UsersListComponent,
+    UserComponent,
+    FollowButtonComponent,
   ],
   imports: [
     AppRoutingModule,

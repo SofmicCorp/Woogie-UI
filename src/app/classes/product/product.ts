@@ -17,25 +17,4 @@ export interface Product {
   additionalImages: [string];
   adultOnly: boolean;
   reactions: ReactionsStats;
-
-  // constructor(retailId, retailName, productName, image, thumbnailImage, priceValue,
-  //             priceCurrency, itemHref, shippingCost, shippingCurrency, shippingCostType, totalPrice,
-  //             apiItem, additionalImages, adultOnly){
-  //   this.retailId = retailId;
-  //   this.retailName = retailName;
-  //   this.productName = productName;
-  //   this.image = image;
-  //   this.thumbnailImage = thumbnailImage;
-  //   this.priceValue = priceValue;
-  //   this.priceCurrency = priceCurrency;
-  //   this.itemHref = itemHref;
-  //   this.shippingCost = shippingCost;
-  //   this.shippingCurrency = shippingCurrency;
-  //   this.shippingCostType = shippingCostType;
-  //   this.totalPrice = totalPrice;
-  //   this.apiItem = apiItem;
-  //   this.additionalImages = additionalImages;
-  //   this.adultOnly = adultOnly;
-  // }
-
 }

@@ -4,5 +4,6 @@ export const WoogieFrontRoutes = {
   root: "\'\'",
   home: 'home',
   products: 'products',
-  feed: 'feed'
+  feed: 'feed',
+  people: 'people',
 };

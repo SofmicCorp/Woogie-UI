@@ -1,0 +1,5 @@
+<mat-grid-list cols="1" rowHeight="110px" gutterSize="5px">
+  <mat-grid-tile *ngFor="let user of users">
+    <app-user [user]="user" style="width: 100%; height: 100%"></app-user>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -1,0 +1,35 @@
+.item1 { grid-area: image; }
+.item2 { grid-area: description; padding-top: 10px}
+.item3 { grid-area: followButton; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'image description description description description followButton'
+    'image description description description description followButton'
+    'image description description description description followButton';
+  grid-gap: 10px;
+  background-color: white;
+  width: 100%;
+  height: 95%;
+  border-radius: 25px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1), 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.grid-container > div {
+  text-align: left;
+  font-size: 20px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.img {
+  width: 60px;
+  max-height: 60px;
+  border-radius: 50%;
+}
+
+.userName{
+  font-weight: bold;
+}

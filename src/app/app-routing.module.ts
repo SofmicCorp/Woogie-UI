@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {WoogieFrontRoutes} from './constants/woogie-front-routes';
 import {MainNavComponent} from './components/main-nav/main-nav.component';
 import {ProductsListComponent} from './components/main-nav/content/products-list/products-list.component';
+import {UsersListComponent} from './components/main-nav/content/users-list/users-list.component';
 
 
 const appRoutes: Routes = [
@@ -11,6 +12,7 @@ const appRoutes: Routes = [
   {path: '', redirectTo: '/' + WoogieFrontRoutes.home, pathMatch: 'full'},
   {path: WoogieFrontRoutes.home, component: MainNavComponent, children: [
       {path: WoogieFrontRoutes.products, component: ProductsListComponent},
+      {path: WoogieFrontRoutes.people, component: UsersListComponent},
     ]
   }
   // {path: '**', pathMatch: 'full', component: NotFoundComponent}
