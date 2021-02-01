@@ -18,9 +18,7 @@ export class UsersListComponent implements OnInit {
   }
 
   subscriptions(){
-    console.log("simba")
     this.searchService.users.subscribe(users => {
-      console.log(users);
       this.users = users;
     });
   }
