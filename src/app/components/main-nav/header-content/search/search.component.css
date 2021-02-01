@@ -37,14 +37,9 @@ mat-button-toggle {
 
 }
 
-.mat-button-toggle-disabled {
-  background-color: #e1dde5;
-  margin-bottom: 3px;
-}
-
 .mat-button-toggle-checked {
   /*border: 1px solid #c5c0c7;*/
-  background-color: purple;
+  /*background-color: purple;*/
   color: white !important;
 }
 

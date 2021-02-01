@@ -1,6 +1,16 @@
-.item1 { grid-area: image; }
+.item1 {
+  grid-area: image;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .item2 { grid-area: description; padding-top: 10px}
-.item3 { grid-area: followButton; }
+.item3 {
+  grid-area: followButton;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .grid-container {
   display: grid;
@@ -10,7 +20,7 @@
     'image description description description description followButton';
   grid-gap: 10px;
   background-color: white;
-  width: 100%;
+  width: 85%;
   height: 95%;
   border-radius: 25px;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1), 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
@@ -25,8 +35,8 @@
 }
 
 .img {
-  width: 60px;
-  max-height: 60px;
+  width: 85px;
+  max-height: 85px;
   border-radius: 50%;
 }
 
