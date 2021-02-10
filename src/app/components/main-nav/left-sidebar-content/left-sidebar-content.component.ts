@@ -3,10 +3,10 @@ import {WoogieFrontRoutes} from '../../../constants/woogie-front-routes';
 
 @Component({
   selector: 'app-sidebar-content',
-  templateUrl: './sidebar-content.component.html',
-  styleUrls: ['./sidebar-content.component.css']
+  templateUrl: './left-sidebar-content.component.html',
+  styleUrls: ['./left-sidebar-content.component.css']
 })
-export class SidebarContentComponent implements OnInit {
+export class LeftSidebarContentComponent implements OnInit {
 
   woogieFrontRoutes = WoogieFrontRoutes;
 

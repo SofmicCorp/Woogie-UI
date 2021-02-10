@@ -1,0 +1,20 @@
+<h4>Sort & Filters</h4>
+<mat-form-field appearance="fill">
+  <mat-label>Sort</mat-label>
+  <mat-select name="sort">
+    <mat-option *ngFor="let sort of sortOptions" [value]="sort.value">
+      {{sort.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Condition</mat-label>
+  <mat-select name="condition">
+    <mat-option *ngFor="let condition of conditionOptions" [value]="condition.value">
+      {{condition.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-slide-toggle formControlName="freeShipping">Free Shipping</mat-slide-toggle>

@@ -22,12 +22,10 @@ export class ProductComponent implements OnInit {
     const myReaction: Reaction = {
       userId: '2',
       type: reactionType,
-      id: '',
+      id: null,
       active: true
     };
-
     this.httpService.createReaction(this.product, myReaction).subscribe( res => {
-      console.log(res);
     });
   }
 
@@ -39,7 +37,6 @@ export class ProductComponent implements OnInit {
     };
 
     this.httpService.inactiveReaction(body).subscribe( res => {
-      console.log(res);
     });
   }
 

@@ -18,7 +18,6 @@ export class SearchService {
     this.httpService.searchProducts(params).subscribe(
       products => {
         this.products.next(products);
-        console.log(products);
       }
     );
   }

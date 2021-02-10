@@ -36,15 +36,17 @@ import { HeaderContentComponent } from './components/main-nav/header-content/hea
 import { NotificationComponent } from './components/main-nav/header-content/notification/notification.component';
 import { ProfileComponent } from './components/main-nav/header-content/profile/profile.component';
 import { LogoutComponent } from './components/main-nav/header-content/logout/logout.component';
-import { UserItemComponent } from './components/main-nav/sidebar-content/user-item/user-item.component';
-import { SidebarItemComponent } from './components/main-nav/sidebar-content/sidebar-item/sidebar-item.component';
-import { SidebarContentComponent } from './components/main-nav/sidebar-content/sidebar-content.component';
+import { UserItemComponent } from './components/main-nav/left-sidebar-content/user-item/user-item.component';
+import { SidebarItemComponent } from './components/main-nav/left-sidebar-content/sidebar-item/sidebar-item.component';
+import { LeftSidebarContentComponent } from './components/main-nav/left-sidebar-content/left-sidebar-content.component';
 import {AppRoutingModule} from './app-routing.module';
 import { ProductsListComponent } from './components/main-nav/content/products-list/products-list.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { UsersListComponent } from './components/main-nav/content/users-list/users-list.component';
 import { UserComponent } from './components/main-nav/content/users-list/user/user.component';
 import { FollowButtonComponent } from './components/shared/follow-button/follow-button.component';
+import { RightSidebarContentComponent } from './components/main-nav/right-sidebar-content/right-sidebar-content.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -60,11 +62,12 @@ import { FollowButtonComponent } from './components/shared/follow-button/follow-
     LogoutComponent,
     UserItemComponent,
     SidebarItemComponent,
-    SidebarContentComponent,
+    LeftSidebarContentComponent,
     ProductsListComponent,
     UsersListComponent,
     UserComponent,
     FollowButtonComponent,
+    RightSidebarContentComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -98,6 +101,7 @@ import { FollowButtonComponent } from './components/shared/follow-button/follow-
     MatTooltipModule,
     MatDialogModule,
     MatButtonToggleModule,
+    MatSlideToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
