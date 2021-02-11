@@ -34,10 +34,9 @@
   max-height: 100%;
 }
 
-.img {
-  width: 85px;
-  max-height: 85px;
-  border-radius: 50%;
+img.mat-list-avatar.followImage {
+  width: 70px;
+  height: 70px;
 }
 
 .userName{

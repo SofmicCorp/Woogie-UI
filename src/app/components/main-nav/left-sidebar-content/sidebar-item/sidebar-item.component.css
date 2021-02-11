@@ -20,11 +20,10 @@
   background-color: #f2f7ff;
 }
 
-img{
+.sidebarImg{
   width: 29px;
   height: 27px;
   object-fit: contain;
-
 }
 
 .noHover{

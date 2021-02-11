@@ -1,4 +1,4 @@
 <mat-list-item >
-  <img matListAvatar src="https://i.ya-webdesign.com/images/avatar-icon-png-9.png" alt="https://i.ya-webdesign.com/images/avatar-icon-png-9.png">
-  <a mat-list-item class="noHover">{{'Mor Soferian'}}</a>
+  <img matListAvatar [src]="user.image" [alt]="user.image">
+  <a mat-list-item class="noHover">{{user.fullName}}</a>
 </mat-list-item>

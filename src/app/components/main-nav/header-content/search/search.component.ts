@@ -53,8 +53,7 @@ export class SearchComponent implements OnInit {
         if (filtersStr.length > 0) {
           filtersStr = filtersStr.slice(0, -1);
         }
-        this.myForm.patchValue({sort: filters.sort, filter: filtersStr});
-        console.log(this.myForm.value)
+        this.myForm.patchValue({sort: filters.sort, filter: filtersStr === '' ? null : filtersStr});
       }
     });
   }

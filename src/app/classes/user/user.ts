@@ -1,7 +1,7 @@
 import DateTimeFormat = Intl.DateTimeFormat;
 
 export interface User {
-  id: number;
+  id: string;
   fullName: string;
   firstName: string;
   lastName: string;

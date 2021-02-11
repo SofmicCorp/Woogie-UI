@@ -40,7 +40,7 @@ export class RightSidebarContentComponent implements OnInit {
 
   subscriptions(){
     this.myForm.valueChanges.subscribe(filters => {
-      this.searchService.filtersUpdated(filters);
+      this.searchService.filtersUpdated(filters === '' ? null : filters);
     });
   }
 

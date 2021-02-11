@@ -1,10 +1,10 @@
 <div class="grid-container">
-  <div class="item1"><img class="retailImage" src="../../../../../../assets/img/ebay_img.png"></div>
-  <div class="item2"><img class="img" src="{{product.image}}"></div>
+  <div class="item1"><img class="retailImage" src="../../../../../../assets/img/ebay_img.png" ></div>
+  <div class="item2"><img src="{{product.image}}" class="productImage"></div>
   <div class="item3">
     <p class="productName">{{product.productName}}</p>
     <p>{{product.totalPrice + "$"}}</p>
-    <p>{{"Free Shipping"}}</p>
+    <p>{{product.shippingCost == 0 ? "Free Shipping" : ''}}</p>
   </div>
   <div class="item5">
     <app-product-stats [reactionsStats]="product.reactions" (createReaction)="createReaction($event)" (inactiveReaction)="inactiveReaction()"></app-product-stats>

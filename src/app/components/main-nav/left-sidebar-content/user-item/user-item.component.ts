@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-// import {UserService} from '../../../services/user-service/user.service';
-// import {MercuryUser} from '../../../shared/models/user';
+import {UserService} from '../../../../services/user.service';
+import {User} from '../../../../classes/user/user';
 
 @Component({
   selector: 'app-user-item',
@@ -9,14 +9,12 @@ import {Component, OnInit} from '@angular/core';
 })
 export class UserItemComponent implements OnInit {
 
-  // user: MercuryUser;
+  user: User;
 
-  constructor(/*private userService: UserService*/) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    // this.userService.user.subscribe(value => {
-    //   this.user = value;
-    // });
+    this.user = this.userService.getUser();
   }
 
 }

@@ -3,6 +3,7 @@ import {Product} from '../../../../../classes/product/product';
 import {HttpService} from '../../../../../services/http.service';
 import {Reaction} from '../../../../../classes/reaction/reaction';
 import {ReactionsEnum} from '../../../../../classes/reaction/reactions-enum';
+import {UserService} from '../../../../../services/user.service';
 
 @Component({
   selector: 'app-product',
@@ -13,14 +14,14 @@ export class ProductComponent implements OnInit {
 
   @Input() product: Product;
 
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService, private userService: UserService) { }
 
   ngOnInit(): void {
   }
 
   createReaction(reactionType: ReactionsEnum){
     const myReaction: Reaction = {
-      userId: '2',
+      userId: this.userService.getUser().id,
       type: reactionType,
       id: null,
       active: true
@@ -31,7 +32,7 @@ export class ProductComponent implements OnInit {
 
   inactiveReaction(){
     const body = {
-      userId: '2',
+      userId: this.userService.getUser().id,
       retailId: this.product.retailId,
       retailName: this.product.retailName
     };

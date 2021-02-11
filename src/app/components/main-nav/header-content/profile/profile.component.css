@@ -5,7 +5,7 @@
   cursor: pointer;
 }
 
-img{
+.userImage{
   max-height: 30px;
   position: center;
 }

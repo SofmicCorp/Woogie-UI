@@ -1,5 +1,7 @@
 <div class="grid-container">
-  <div class="item1"><img class="img" src="{{user.image}}"></div>
+  <div class="item1">
+      <img matListAvatar [src]="user.image" [alt]="user.image" class="followImage">
+  </div>
   <div class="item2">
     <p class="userName">{{user.fullName}}</p>
 <!--    <p>{{product.totalPrice + "$"}}</p>-->
