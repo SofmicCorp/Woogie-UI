@@ -1,20 +1,36 @@
 <h4>Sort & Filters</h4>
-<mat-form-field appearance="fill">
-  <mat-label>Sort</mat-label>
-  <mat-select name="sort">
-    <mat-option *ngFor="let sort of sortOptions" [value]="sort.value">
-      {{sort.viewValue}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
 
-<mat-form-field appearance="fill">
-  <mat-label>Condition</mat-label>
-  <mat-select name="condition">
-    <mat-option *ngFor="let condition of conditionOptions" [value]="condition.value">
-      {{condition.viewValue}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+<form [formGroup]="myForm">
 
-<mat-slide-toggle formControlName="freeShipping">Free Shipping</mat-slide-toggle>
+  <mat-form-field appearance="fill">
+    <mat-label>Sort</mat-label>
+    <mat-select name="sort" formControlName="sort">
+      <mat-option *ngFor="let sort of sortOptions" [value]="sort.value">
+        {{sort.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Condition</mat-label>
+    <mat-select name="condition" formControlName="conditions">
+      <mat-option *ngFor="let condition of conditionOptions" [value]="condition.value">
+        {{condition.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="priceRange">
+    <span>Price: </span>
+    <mat-form-field appearance="outline" class="priceInput">
+      <input type="text" placeholder="Min" matInput (input)="onMinPriceChanged($event)" >
+    </mat-form-field>
+    -
+    <mat-form-field appearance="outline" class="priceInput">
+      <input type="text" placeholder="Max" matInput (input)="onMaxPriceChanged($event)">
+    </mat-form-field>
+  </div>
+
+  <mat-slide-toggle formControlName="freeShipping">Free Shipping</mat-slide-toggle>
+
+</form>

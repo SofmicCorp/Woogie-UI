@@ -28,12 +28,34 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.packFormGroup();
+    this.subscriptions();
     this.searchType = SearchType.PRODUCTS;
   }
 
   packFormGroup(){
     this.myForm = new FormGroup({
-      q: new FormControl(null, Validators.required)
+      q: new FormControl(null, Validators.required),
+      sort: new FormControl(null),
+      filter: new FormControl(null)
+    });
+  }
+
+  subscriptions(){
+    this.searchService.filtersUpdatedBehaviorSubject.subscribe(filters => {
+      if (filters != null) {
+        let filtersStr = '';
+        Object.keys(filters).forEach(key => {
+          if (key !== 'sort' && filters[key] != null) {
+            filtersStr += key + ':' + filters[key] + ',';
+          }
+        });
+
+        if (filtersStr.length > 0) {
+          filtersStr = filtersStr.slice(0, -1);
+        }
+        this.myForm.patchValue({sort: filters.sort, filter: filtersStr});
+        console.log(this.myForm.value)
+      }
     });
   }
 
