@@ -32,4 +32,16 @@ export class HttpService {
     return this.http.get<User[]>(environment.woogieBackUrl + usersRoutesList.searchUser, {params});
   }
 
+  followUser(urlParam: string , body: {followId: string}){
+    return this.http.post<User>(environment.woogieBackUrl + usersRoutesList.baseUsers + urlParam + usersRoutesList.followUser, body);
+  }
+
+  confirmUser(urlParam: string , body: {userId: string}){
+    return this.http.put<User>(environment.woogieBackUrl + usersRoutesList.baseUsers + urlParam + usersRoutesList.confirmUser, body);
+  }
+
+  unfollowUser(urlParam: string , body: {userId: string}){
+    return this.http.put<User>(environment.woogieBackUrl + usersRoutesList.baseUsers + urlParam + usersRoutesList.unfollowUser, body);
+  }
+
 }

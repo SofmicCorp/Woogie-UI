@@ -5,6 +5,7 @@ import {Product} from '../../../../classes/product/product';
 import {SearchService} from '../../../../services/search.service';
 import {Router} from '@angular/router';
 import {WoogieFrontRoutes} from '../../../../constants/woogie-front-routes';
+import {UserService} from '../../../../services/user.service';
 
 enum SearchType {
   PRODUCTS = 'products',
@@ -24,7 +25,7 @@ export class SearchComponent implements OnInit {
   products: Product[];
   @ViewChild('toggleProducts') ref: ElementRef;
 
-  constructor(private searchService: SearchService, private router: Router) { }
+  constructor(private searchService: SearchService, private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
     this.packFormGroup();
@@ -36,7 +37,7 @@ export class SearchComponent implements OnInit {
     this.myForm = new FormGroup({
       q: new FormControl(null, Validators.required),
       sort: new FormControl(null),
-      filter: new FormControl(null)
+      userId: new FormControl(this.userService.getUser().id)
     });
   }
 

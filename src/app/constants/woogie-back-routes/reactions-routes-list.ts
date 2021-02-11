@@ -1,4 +1,4 @@
 export const reactionsRoutesList = {
-  createReaction: 'reactions',
+  createReaction: 'reactions/',
   inactiveReaction: 'reactions/inactive'
 };
