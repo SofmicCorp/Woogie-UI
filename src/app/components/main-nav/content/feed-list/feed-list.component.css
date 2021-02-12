@@ -1,0 +1,11 @@
+.userFeed{
+  height: 140px;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.productFeed{
+  height: 240px;
+  max-width: 100%;
+  margin-bottom: 20px;
+}

@@ -1,12 +1,16 @@
-<div class="grid-container">
-  <div class="item1">
-      <img matListAvatar [src]="user.image" [alt]="user.image" class="followImage">
-  </div>
-  <div class="item2">
-    <p class="userName">{{user.fullName}}</p>
-    <p *ngIf="mutualFollowingUsersStr != null" class="mutualFollowingUsers">{{mutualFollowingUsersStr}}</p>
-  </div>
-  <div class="item3">
-    <app-follow-button [user]="user"></app-follow-button>
+<div class="product">
+  <p class="feed" *ngIf="isFeed">test</p>
+  <hr class="solid" *ngIf="isFeed">
+  <div class="grid-container">
+    <div class="item1">
+        <img matListAvatar [src]="user.image" [alt]="user.image" class="followImage">
+    </div>
+    <div class="item2">
+      <p class="userName">{{user.fullName}}</p>
+      <p *ngIf="mutualFollowingUsersStr != null" class="mutualFollowingUsers">{{mutualFollowingUsersStr}}</p>
+    </div>
+    <div class="item3">
+      <app-follow-button [user]="user"></app-follow-button>
+    </div>
   </div>
 </div>

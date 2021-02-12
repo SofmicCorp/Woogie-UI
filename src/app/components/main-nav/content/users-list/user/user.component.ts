@@ -9,6 +9,7 @@ import {User} from '../../../../../classes/user/user';
 export class UserComponent implements OnInit {
 
   @Input() user: User;
+  @Input() isFeed: boolean;
   mutualFollowingUsersStr: string;
 
   constructor() { }

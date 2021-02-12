@@ -47,6 +47,7 @@ import { UserComponent } from './components/main-nav/content/users-list/user/use
 import { FollowButtonComponent } from './components/shared/follow-button/follow-button.component';
 import { RightSidebarContentComponent } from './components/main-nav/right-sidebar-content/right-sidebar-content.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { FeedListComponent } from './components/main-nav/content/feed-list/feed-list.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     UserComponent,
     FollowButtonComponent,
     RightSidebarContentComponent,
+    FeedListComponent,
   ],
   imports: [
     AppRoutingModule,

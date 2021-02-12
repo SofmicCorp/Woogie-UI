@@ -7,11 +7,17 @@ import {Reaction} from '../classes/reaction/reaction';
 import {reactionsRoutesList} from '../constants/woogie-back-routes/reactions-routes-list';
 import {usersRoutesList} from '../constants/woogie-back-routes/users-routes-list';
 import {User} from '../classes/user/user';
+import {Action} from '../classes/feed/action';
 
 @Injectable({providedIn: 'root'})
 export class HttpService {
 
   constructor(private http: HttpClient) { }
+
+  // Feed
+  getFeed(urlParam: any, params){
+    return this.http.get<Action[]>(environment.woogieBackUrl  + usersRoutesList.baseUsers + urlParam +  usersRoutesList.feed, {params});
+  }
 
   // Products
   searchProducts(params: any){

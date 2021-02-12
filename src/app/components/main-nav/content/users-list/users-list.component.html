@@ -1,5 +1,5 @@
-<mat-list rowHeight="110px" gutterSize="5px">
-  <mat-list-item *ngFor="let user of users">
+<mat-list>
+  <mat-list-item *ngFor="let user of users" class="userWithoutFeed">
     <app-user [user]="user" style="width: 100%; height: 100%"></app-user>
   </mat-list-item>
 </mat-list>

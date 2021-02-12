@@ -1,4 +1,9 @@
-.mat-list-item{
+.userWithFeed{
+  height: 120px;
+  margin-bottom: 20px;
+}
+
+.userWithoutFeed{
   height: 90px;
   margin-bottom: 20px;
 }
