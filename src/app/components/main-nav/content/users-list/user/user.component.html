@@ -4,8 +4,7 @@
   </div>
   <div class="item2">
     <p class="userName">{{user.fullName}}</p>
-<!--    <p>{{product.totalPrice + "$"}}</p>-->
-<!--    <p>{{"Following"}}</p>-->
+    <p *ngIf="mutualFollowingUsersStr != null" class="mutualFollowingUsers">{{mutualFollowingUsersStr}}</p>
   </div>
   <div class="item3">
     <app-follow-button [user]="user"></app-follow-button>

@@ -1,7 +1,10 @@
 .mat-list-item{
-  display: inline-block;
-  margin: 0 13px;
   color: purple;
   text-decoration: none;
   cursor: pointer;
+}
+
+.logoutIcon{
+  margin-top: 15px;
+  margin-right: 25px;
 }

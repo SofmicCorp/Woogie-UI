@@ -1,12 +1,8 @@
 .mat-list-item{
-  display: inline-block;
-  margin: 0 13px;
-  text-decoration: none;
   cursor: pointer;
 }
 
 .userImage{
-  max-height: 30px;
-  position: center;
+  margin-right: 11px;
 }
 

@@ -9,11 +9,20 @@ import {User} from '../../../../../classes/user/user';
 export class UserComponent implements OnInit {
 
   @Input() user: User;
+  mutualFollowingUsersStr: string;
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.user)
+    console.log(this.user);
+    if (this.user.mutualFollowingUsers != null){
+      if (this.user.mutualFollowingUsers.length > 0){
+        this.mutualFollowingUsersStr = 'Followed by ' + this.user.mutualFollowingUsers[0];
+        if (this.user.mutualFollowingUsers.length > 1){
+          this.mutualFollowingUsersStr += ' and ' + (this.user.mutualFollowingUsers.length - 1) + ' others';
+        }
+      }
+    }
   }
 
 }

@@ -40,5 +40,11 @@ img.mat-list-avatar.followImage {
 }
 
 .userName{
+  font-size: medium;
   font-weight: bold;
+}
+
+.mutualFollowingUsers{
+  font-size: small;
+  color: gray;
 }
