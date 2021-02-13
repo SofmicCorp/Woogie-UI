@@ -1,3 +1,15 @@
-<mat-list-item href="#">
-  <mat-icon class="notifyIcon">notifications</mat-icon>
+<mat-list-item href="#" (clickOutside)="openNotification(false)" [exclude]="'.notification-btn'">
+  <button mat-icon-button aria-label="Example icon-button with a menu" class="notifyIcon" (click)="onClick()">
+    <mat-icon [matBadge]="notifications.length" matBadgeColor="warn"  [matBadgeHidden]="hidden">notifications</mat-icon>
+  </button>
+  <div *ngIf="showNotifications" class="notification-content">
+    <div class="notification-header">
+      <span class="mdi mdi-settings"></span>
+      <span class="label">Notifications</span>
+    </div>
+    <div class="notification-header">
+      <span class="mdi mdi-settings"></span>
+      <span class="label">Notifications</span>
+    </div>
+  </div>
 </mat-list-item>

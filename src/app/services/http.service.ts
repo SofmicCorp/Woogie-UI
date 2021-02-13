@@ -8,6 +8,8 @@ import {reactionsRoutesList} from '../constants/woogie-back-routes/reactions-rou
 import {usersRoutesList} from '../constants/woogie-back-routes/users-routes-list';
 import {User} from '../classes/user/user';
 import {Action} from '../classes/feed/action';
+import {Notification} from '../classes/notification/notification';
+import {notificationsRoutesList} from '../constants/woogie-back-routes/notifications-routes-list';
 
 @Injectable({providedIn: 'root'})
 export class HttpService {
@@ -48,6 +50,11 @@ export class HttpService {
 
   unfollowUser(urlParam: string , body: {userId: string}){
     return this.http.put<User>(environment.woogieBackUrl + usersRoutesList.baseUsers + urlParam + usersRoutesList.unfollowUser, body);
+  }
+
+  // Notifications
+  getNotifications(params: any){
+    return this.http.get<Notification[]>(environment.woogieBackUrl + notificationsRoutesList.baseNotifications, {params});
   }
 
 }

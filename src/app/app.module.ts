@@ -48,6 +48,9 @@ import { FollowButtonComponent } from './components/shared/follow-button/follow-
 import { RightSidebarContentComponent } from './components/main-nav/right-sidebar-content/right-sidebar-content.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { FeedListComponent } from './components/main-nav/content/feed-list/feed-list.component';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatMenuModule} from '@angular/material/menu';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [
@@ -104,6 +107,9 @@ import { FeedListComponent } from './components/main-nav/content/feed-list/feed-
     MatDialogModule,
     MatButtonToggleModule,
     MatSlideToggleModule,
+    MatBadgeModule,
+    MatMenuModule,
+    ClickOutsideModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
