@@ -4,6 +4,7 @@ import {HttpService} from '../../../../../services/http.service';
 import {Reaction} from '../../../../../classes/reaction/reaction';
 import {ReactionsEnum} from '../../../../../classes/reaction/reactions-enum';
 import {UserService} from '../../../../../services/user.service';
+import {Action} from '../../../../../classes/feed/action';
 
 @Component({
   selector: 'app-product',
@@ -13,10 +14,28 @@ import {UserService} from '../../../../../services/user.service';
 export class ProductComponent implements OnInit {
 
   @Input() product: Product;
+  @Input() isFeed: boolean;
+  @Input() action: Action;
+  feedUserName: string;
+  actionStr: string;
 
   constructor(private httpService: HttpService, private userService: UserService) { }
 
   ngOnInit(): void {
+    this.feedHandler();
+  }
+
+  feedHandler(){
+    if (this.action != null){
+      const usersKeys = Object.keys(this.action.users);
+      if (usersKeys.length === 1){
+        console.log("here1")
+        this.feedUserName = this.action.users[usersKeys[0]];
+        this.actionStr = ' reacted on this product';
+      }else if (usersKeys.length > 1){
+        this.actionStr = ' and '  + (usersKeys.length - 1) + ' reacted on this product';
+      }
+    }
   }
 
   createReaction(reactionType: ReactionsEnum){

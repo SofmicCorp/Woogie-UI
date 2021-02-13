@@ -1,5 +1,5 @@
-<div class="product">
-  <p class="feed" *ngIf="isFeed">test</p>
+<div class="user">
+  <p class="feed" *ngIf="isFeed"><span class="feedBold">{{feedUserName}}</span>{{actionStr}}<span class="feedBold">{{user.fullName}}</span></p>
   <hr class="solid" *ngIf="isFeed">
   <div class="grid-container">
     <div class="item1">

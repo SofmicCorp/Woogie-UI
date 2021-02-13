@@ -1,4 +1,4 @@
-.product {
+.user {
   background-color: white;
   width: 85%;
   height: 95%;
@@ -6,6 +6,7 @@
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1), 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
 }
+
 .item1 {
   grid-area: image;
   display: flex;
@@ -55,4 +56,19 @@ img.mat-list-avatar.followImage {
 
 hr.solid {
   border-top: 1px solid #bbb;
+  width: 95%;
+}
+
+.feed{
+  padding-top: 12px;
+  padding-left: 20px;
+  color: #65676B;
+  font-size: small;
+}
+
+.feedBold{
+  padding-top: 10px;
+  font-size: small;
+  color: black;
+  font-weight: bold;
 }

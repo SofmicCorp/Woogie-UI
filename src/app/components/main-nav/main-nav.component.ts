@@ -22,7 +22,7 @@ export class MainNavComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.setUser({
-      id: '1',
+      id: '2',
       fullName: 'Mor Soferian',
       firstName: ' Mor',
       lastName: 'Soferian',

@@ -11,7 +11,6 @@ import {Action} from '../../../../classes/feed/action';
 export class FeedListComponent implements OnInit {
 
   actions: Action[];
-  cssClass: string;
 
   constructor(private userService: UserService, private httpService: HttpService) { }
 
