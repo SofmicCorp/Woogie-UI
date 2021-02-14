@@ -33,11 +33,10 @@ export class NotificationComponent implements OnInit {
   }
 
   onClick() {
-    this.showNotifications = true;
+    this.showNotifications = !this.showNotifications;
   }
 
   openNotification(state: boolean) {
-    console.log(state);
     this.showNotifications = state;
   }
 }

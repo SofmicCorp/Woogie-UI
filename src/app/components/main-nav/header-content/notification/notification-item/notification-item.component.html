@@ -1,0 +1,14 @@
+<div class="user">
+  <div class="grid-container">
+    <div class="item1">
+      <img matListAvatar [src]="notification.senderImage" [alt]="notification.senderImage" class="followImage">
+    </div>
+    <div class="item2">
+      <p class="userName">{{notification.senderFullname}}</p>
+      <p class="description">{{this.description}}</p>
+    </div>
+    <div class="item3">
+      <app-follow-button *ngIf="notification.type.toString() != 'confirmed'" [user]="{id: notification.senderId, fullName: notification.senderFullname, status: status}"></app-follow-button>
+    </div>
+  </div>
+</div>

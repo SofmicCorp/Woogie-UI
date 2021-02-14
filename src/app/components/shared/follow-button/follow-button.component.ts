@@ -30,6 +30,14 @@ export class FollowButtonComponent implements OnInit {
       case FollowStatusEnum.PENDING:
         this.buttonText = 'Requested';
         break;
+      case FollowStatusEnum.FOLLOW_REQUEST:
+        this.buttonText = 'Confirm';
+        this.color = 'primary';
+        break;
+      case FollowStatusEnum.CONFIRMED:
+        this.buttonText = 'Confirmed';
+        this.color = null;
+        break;
     }
   }
 
@@ -47,6 +55,11 @@ export class FollowButtonComponent implements OnInit {
         this.color = 'primary';
         this.user.status = FollowStatusEnum.INACTIVE;
         this.httpService.unfollowUser(this.userService.getUser().id, {userId: this.user.id}).subscribe(user => {});
+        break;
+      case FollowStatusEnum.FOLLOW_REQUEST:
+        this.buttonText = 'Confirmed';
+        this.user.status = FollowStatusEnum.CONFIRMED;
+        this.httpService.confirmUser(this.userService.getUser().id, {userId: this.user.id}).subscribe(user => {});
         break;
     }
   }

@@ -1,15 +1,16 @@
-<mat-list-item href="#" (clickOutside)="openNotification(false)" [exclude]="'.notification-btn'">
+<div (clickOutside)="openNotification(false)" [exclude]="'.notification-btn'">
   <button mat-icon-button aria-label="Example icon-button with a menu" class="notifyIcon" (click)="onClick()">
-    <mat-icon [matBadge]="notifications.length" matBadgeColor="warn"  [matBadgeHidden]="hidden">notifications</mat-icon>
-  </button>
-  <div *ngIf="showNotifications" class="notification-content">
-    <div class="notification-header">
-      <span class="mdi mdi-settings"></span>
-      <span class="label">Notifications</span>
+      <mat-icon [matBadge]="notifications.length" matBadgeColor="warn"  [matBadgeHidden]="hidden">notifications</mat-icon>
+    </button>
+    <div *ngIf="showNotifications" class="notification-content">
+      <div class="notification-header">
+        <span class="mdi mdi-settings"></span>
+        <span class="label">Notifications</span>
+      </div>
+      <mat-list style="width: 100%">
+        <mat-list-item  *ngFor="let notification of notifications" class="notificationItem">
+          <app-notification-item [notification]="notification" style="width: 100%; height: 100%"></app-notification-item>
+        </mat-list-item>
+      </mat-list>
     </div>
-    <div class="notification-header">
-      <span class="mdi mdi-settings"></span>
-      <span class="label">Notifications</span>
-    </div>
-  </div>
-</mat-list-item>
+</div>

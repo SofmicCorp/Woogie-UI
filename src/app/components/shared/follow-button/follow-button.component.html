@@ -1,1 +1,1 @@
-<button mat-raised-button color="{{color}}" class="{{user.status}}" (click)="onClick()">{{buttonText}} </button>
+<button mat-raised-button color="{{color}}" class="{{user.status}}" (click)="onClick()" [disabled]="buttonText==='Confirmed'">{{buttonText}} </button>

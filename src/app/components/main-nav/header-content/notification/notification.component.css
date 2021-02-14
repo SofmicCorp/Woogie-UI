@@ -1,19 +1,13 @@
-mat-list-item{
-  color: purple;
-  text-decoration: none;
-  cursor: pointer;
-}
-
 .notifyIcon{
-  margin-top: 5px;
+  color: purple;
+  margin-top: 0px;
   margin-right: 25px;
 }
 
 .notification-content {
-  position: absolute;
+  position: fixed;
   top: 65px;
-  right: 0px;
-  width: 300px;
+  right: 50px;
   height: fit-content;
   background-color: white;
   z-index: 300;
@@ -27,8 +21,13 @@ mat-list-item{
 }
 
 .notification-header .label {
-  display: inline-block;
-  width: 90%;
   text-align: center;
   font-weight: 500;
+}
+
+.notificationItem {
+  height: fit-content;
+  width: fit-content;
+  color: black;
+  cursor: pointer;
 }

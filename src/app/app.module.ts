@@ -51,6 +51,7 @@ import { FeedListComponent } from './components/main-nav/content/feed-list/feed-
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatMenuModule} from '@angular/material/menu';
 import { ClickOutsideModule } from 'ng-click-outside';
+import { NotificationItemComponent } from './components/main-nav/header-content/notification/notification-item/notification-item.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
     FollowButtonComponent,
     RightSidebarContentComponent,
     FeedListComponent,
+    NotificationItemComponent,
   ],
   imports: [
     AppRoutingModule,
