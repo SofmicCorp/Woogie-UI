@@ -20,7 +20,6 @@ export class MainInterceptorService implements HttpInterceptor{
   }
 
   private woogieBackRequest(req: HttpRequest<any>, next: HttpHandler) {
-    console.log("here meee")
     this.indicationsService.onFetching();
     return next.handle(req).pipe(
       tap(

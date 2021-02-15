@@ -18,6 +18,7 @@
     'image name name name name retailImage'
     'image reactions reactions reactions reactions reactions';
   grid-gap: 10px;
+  cursor: pointer;
 }
 
 .grid-container > div {

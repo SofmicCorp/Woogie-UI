@@ -30,7 +30,6 @@ export class NotificationComponent implements OnInit, AfterViewInit {
       if (notifications != null) {
         this.notifications = notifications;
         this.getNotificationIds();
-        console.log(this.notifications);
         this.badgeVisibility();
       }
     });

@@ -15,7 +15,6 @@ export class HeaderContentComponent implements OnInit {
   ngOnInit(): void {
     this.indicationsService.isFetchingBehaviorSubject.subscribe(isFetching => {
       if (isFetching != null){
-        console.log("baby")
         this.isFetching = isFetching;
       }
     });

@@ -29,7 +29,6 @@ export class ProductComponent implements OnInit {
     if (this.action != null){
       const usersKeys = Object.keys(this.action.users);
       if (usersKeys.length === 1){
-        console.log("here1")
         this.feedUserName = this.action.users[usersKeys[0]];
         this.actionStr = ' reacted on this product';
       }else if (usersKeys.length > 1){
@@ -60,4 +59,7 @@ export class ProductComponent implements OnInit {
     });
   }
 
+  onClick(itemHref: string) {
+    window.open(itemHref, "_blank");
+  }
 }

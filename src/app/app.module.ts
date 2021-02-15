@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
+import { AppComponent, SafePipe } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import { ProductReactionsComponent } from './components/main-nav/content/products-list/product/product-reactions/product-reactions.component';
@@ -57,6 +57,7 @@ import {MainInterceptorService} from './services/interceptors/main-interceptor.s
 @NgModule({
   declarations: [
     AppComponent,
+    SafePipe,
     ProductReactionsComponent,
     ReactionComponent,
     ProductComponent,

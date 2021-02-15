@@ -16,7 +16,6 @@ export class NotificationItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.notification)
     switch (this.notification.type) {
       case FollowStatusEnum.CONFIRMED:
         this.description = ' has confirmed your follow request';
