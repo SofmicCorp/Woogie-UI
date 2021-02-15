@@ -1,41 +1,18 @@
 .user {
-  position: relative;
-  background-color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
   width: 100%;
   height: 100%;
   padding: 2px;
 }
 
-.item1 {
-  grid-area: image;
-  padding-top: 10px; padding-right: 10px}
-
-.item2 {
-  grid-area: description;
+.avatar {
   padding-top: 10px;
-  width: 100%;
-  height: 100%;
 }
-.item3 {
-  grid-area: followButton;
+
+.followButton {
   padding-top: 20px;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-areas:
-    'image description followButton'
-'image description followButton'
-'image description followButton';
-
-  grid-gap: 10px;
-  width: 100%;
-  height: 100%;
-}
-
-.grid-container > div {
-  width: 100%;
-  height: 100%;
 }
 
 img.mat-list-avatar.followImage {
@@ -45,10 +22,11 @@ img.mat-list-avatar.followImage {
 }
 
 .userName{
-  padding-top: 15px;
+  padding-top: 17px;
   line-height: 1px;
   padding-right: 10px;
   margin-bottom: 0;
+  margin-left: 7px;
   text-align: left;
   font-size: small;
   font-weight: bold;
@@ -56,8 +34,11 @@ img.mat-list-avatar.followImage {
 }
 
 .description{
+  line-height: 12px;
+  padding-top: 10px;
   padding-right: 10px;
   margin-bottom: 0;
+  margin-left: 7px;
   text-align: left;
   font-size: small;
   color: #65676B;

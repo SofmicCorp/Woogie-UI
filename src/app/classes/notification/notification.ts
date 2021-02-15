@@ -8,5 +8,6 @@ export interface Notification {
   senderImage: string;
   type: FollowStatusEnum;
   connectionStatus: FollowStatusEnum;
-  dirty: true;
+  dirty: boolean;
+  seen: boolean;
 }

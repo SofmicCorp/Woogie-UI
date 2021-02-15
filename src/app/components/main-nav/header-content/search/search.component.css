@@ -1,6 +1,6 @@
 mat-form-field.mat-form-field {
   font-size: 14px;
-  margin-top: 20px;
+  margin-top: 5px;
   width: 100%;
 }
 
@@ -26,15 +26,13 @@ mat-grid-tile .mat-figure {
   font-size: small;
   padding-buttom: 100px;
   cursor: pointer;
-  margin-top: 25px;
+  margin-top: 9px;
 }
 
 mat-button-toggle {
   margin-buttom: 3px;
   /*width: 30px;*/
   /*height: 30px;*/
-  font-style: bold;
-
 }
 
 .mat-button-toggle-checked {
@@ -52,7 +50,9 @@ mat-button-toggle {
 
 .search-form{
   display: flex;
-  align-items: normal;
-  justify-content: flex-end;
-  width: 100%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  /*max-width: 700px !important;*/
+  min-width: 700px;
+  height: 100%;
 }

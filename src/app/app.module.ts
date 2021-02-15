@@ -24,7 +24,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
@@ -52,6 +52,7 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatMenuModule} from '@angular/material/menu';
 import { ClickOutsideModule } from 'ng-click-outside';
 import { NotificationItemComponent } from './components/main-nav/header-content/notification/notification-item/notification-item.component';
+import {MainInterceptorService} from './services/interceptors/main-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -113,7 +114,9 @@ import { NotificationItemComponent } from './components/main-nav/header-content/
     MatMenuModule,
     ClickOutsideModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: MainInterceptorService, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

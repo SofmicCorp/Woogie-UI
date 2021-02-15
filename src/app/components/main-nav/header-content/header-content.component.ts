@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {IndicationsService} from '../../../services/indications.service';
 
 @Component({
   selector: 'app-header-content',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderContentComponent implements OnInit {
 
-  constructor() { }
+  isFetching: boolean;
+
+  constructor(public indicationsService: IndicationsService) { }
 
   ngOnInit(): void {
+    this.indicationsService.isFetchingBehaviorSubject.subscribe(isFetching => {
+      if (isFetching != null){
+        console.log("baby")
+        this.isFetching = isFetching;
+      }
+    });
   }
 
 }

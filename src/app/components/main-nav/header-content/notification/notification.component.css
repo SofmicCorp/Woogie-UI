@@ -9,6 +9,7 @@
   top: 65px;
   right: 50px;
   height: fit-content;
+  width: fit-content;
   background-color: white;
   z-index: 300;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1), 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
@@ -25,9 +26,29 @@
   font-weight: 500;
 }
 
-.notificationItem {
+.dirtyNotificationItem, .notDirtyNotificationItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f2f5;
   height: fit-content;
-  width: fit-content;
+  width: 100%;
   color: black;
   cursor: pointer;
+  margin-bottom: 5px;
 }
+
+.dirtyNotificationItem{
+  background-color: white;
+}
+
+.notDirtyNotificationItem{
+  background-color: #f1f2f5;
+}
+
+div.mat-list-item {
+  width: 100%;
+}
+
+
+
