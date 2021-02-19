@@ -17,19 +17,15 @@ export class ProductReactionsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    for (const item in ReactionsEnum) {
-      if (this.reactionsStats[item.toLowerCase()] != null && this.reactionsStats[item.toLowerCase()] !== '0'){
-        this.reactionsStats.isReacted = true;
-        this.lastReactionType = ReactionsEnum[item];
-      }
-    }
+    console.log(this.reactionsStats)
+    this.lastReactionType = this.reactionsStats.type;
   }
 
   onClicked(reactionType: ReactionsEnum) {
-    if (this.reactionsStats.isReacted){
+    if (this.reactionsStats.active){
       if (this.lastReactionType === reactionType){
         this.reactionsStats[this.lastReactionType]--;
-        this.reactionsStats.isReacted = false;
+        this.reactionsStats.active = false;
         this.lastReactionType = null;
         this.reactionsStats.type = null;
         this.inactiveReaction.emit(reactionType);
@@ -39,11 +35,9 @@ export class ProductReactionsComponent implements OnInit {
     }
     this.reactionsStats[reactionType]++;
     this.lastReactionType = reactionType;
-    this.reactionsStats.isReacted = true;
+    this.reactionsStats.active = true;
     this.reactionsStats.type = reactionType;
     this.createReaction.emit(reactionType);
   }
-
-
 
 }

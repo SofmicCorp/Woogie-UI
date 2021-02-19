@@ -53,6 +53,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { ClickOutsideModule } from 'ng-click-outside';
 import { NotificationItemComponent } from './components/main-nav/header-content/notification/notification-item/notification-item.component';
 import {MainInterceptorService} from './services/interceptors/main-interceptor.service';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -114,6 +115,7 @@ import {MainInterceptorService} from './services/interceptors/main-interceptor.s
     MatBadgeModule,
     MatMenuModule,
     ClickOutsideModule,
+    ScrollingModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: MainInterceptorService, multi: true },

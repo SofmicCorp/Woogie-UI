@@ -3,6 +3,6 @@ export const usersRoutesList = {
   feed: '/feed',
   searchUser: 'users/search',
   followUser: '/connections/follow',
-  confirmUser: '/connections/confirm-user',
+  confirmUser: '/connections/confirm',
   unfollowUser: '/connections/unfollow',
 };

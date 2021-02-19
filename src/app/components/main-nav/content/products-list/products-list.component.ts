@@ -5,7 +5,8 @@ import {SearchService} from '../../../../services/search.service';
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
-  styleUrls: ['./products-list.component.css']
+  styleUrls: ['./products-list.component.css'],
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductsListComponent implements OnInit {
 
@@ -19,6 +20,7 @@ export class ProductsListComponent implements OnInit {
 
   subscriptions(){
     this.searchService.products.subscribe(products => {
+      console.log(this.products)
       this.products = products;
     });
   }

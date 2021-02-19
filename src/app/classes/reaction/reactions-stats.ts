@@ -7,6 +7,6 @@ export interface ReactionsStats {
   bought: number;
   retailId: string;
   retailName: string;
-  isReacted: boolean;
+  active: boolean;
   type: ReactionsEnum;
 }

@@ -22,6 +22,7 @@ export class ProductComponent implements OnInit {
   constructor(private httpService: HttpService, private userService: UserService) { }
 
   ngOnInit(): void {
+    console.log(this.product)
     this.feedHandler();
   }
 
