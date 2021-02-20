@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {Observable} from 'rxjs';
-import {map, shareReplay} from 'rxjs/operators';
+import {fromEvent, Observable} from 'rxjs';
+import {distinctUntilChanged, filter, map, pairwise, share, shareReplay, throttleTime} from 'rxjs/operators';
 import {UserService} from '../../services/user.service';
 import DateTimeFormat = Intl.DateTimeFormat;
+import {CdkScrollable} from '@angular/cdk/overlay';
+import {MatSidenavContainer} from '@angular/material/sidenav';
+import {ScrollingService} from '../../services/scrolling.service';
 
 @Component({
   selector: 'app-main-nav',
@@ -12,13 +15,16 @@ import DateTimeFormat = Intl.DateTimeFormat;
 })
 export class MainNavComponent implements OnInit {
 
+  // @ViewChild(MatSidenavContainer) sidenavContainer: MatSidenavContainer;
+  @ViewChild('sidenavContent') sidenavContent: ElementRef<HTMLInputElement>;
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private userService: UserService) {}
+  constructor(private breakpointObserver: BreakpointObserver, private userService: UserService, private scrollingService: ScrollingService) {}
 
   ngOnInit(): void {
     this.userService.setUser({
@@ -34,6 +40,20 @@ export class MainNavComponent implements OnInit {
       createdAt: new DateTimeFormat(),
       updatedAt: new DateTimeFormat()
     });
+    console.log(this.sidenavContent)
+  }
+
+  getYPosition(e: Event): number {
+    return (e.target as Element).scrollTop;
+  }
+
+@HostListener('window:scroll', ['$event']) // for window scroll events
+  onScroll(event) {
+  console.log(this.sidenavContent)
+  // document.getElementsByTagName('mat-drawer-content')[0].scrollTo(0, 0)
+  this.scrollingService.update('product-list', event, 1500);
+    this.scrollingService.update('users-list', event, 1500);
+    // console.log('Scroll Event', this.getYPosition(event) );
   }
 
 }

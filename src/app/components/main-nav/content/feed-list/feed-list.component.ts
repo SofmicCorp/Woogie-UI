@@ -17,7 +17,6 @@ export class FeedListComponent implements OnInit {
   ngOnInit(): void {
     this.httpService.getFeed(this.userService.getUser().id, {}).subscribe(actions => {
       this.actions = actions;
-      console.log(this.actions);
     });
   }
 

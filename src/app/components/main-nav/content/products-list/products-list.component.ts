@@ -20,7 +20,6 @@ export class ProductsListComponent implements OnInit {
 
   subscriptions(){
     this.searchService.products.subscribe(products => {
-      console.log(this.products)
       this.products = products;
     });
   }
