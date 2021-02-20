@@ -13,10 +13,12 @@ export class SearchService {
   products = new BehaviorSubject<Product[]>(null);
   users = new BehaviorSubject<User[]>(null);
   filtersUpdatedBehaviorSubject = new BehaviorSubject<Filters>(null);
+  lastSearchParams: {q: string, sort: string, filter: string, userId: string, page: number};
 
   constructor(private httpService: HttpService) { }
 
-  searchProducts(params: any){
+  searchProducts(params: {q: string, sort: string, filter: string, userId: string, page: number}){
+    this.lastSearchParams = params;
     this.httpService.searchProducts(params).subscribe(
       products => {
         this.products.next(products);

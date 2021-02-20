@@ -17,7 +17,6 @@ export class ProductReactionsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.reactionsStats)
     this.lastReactionType = this.reactionsStats.type;
   }
 

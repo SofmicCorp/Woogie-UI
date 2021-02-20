@@ -37,7 +37,8 @@ export class SearchComponent implements OnInit {
     this.myForm = new FormGroup({
       q: new FormControl(null, Validators.required),
       sort: new FormControl(null),
-      userId: new FormControl(this.userService.getUser().id)
+      userId: new FormControl(this.userService.getUser().id),
+      page: new FormControl(0)
     });
   }
 
