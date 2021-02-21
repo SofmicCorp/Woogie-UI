@@ -27,6 +27,8 @@ export class MainNavComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver, private userService: UserService, private scrollingService: ScrollingService) {}
 
   ngOnInit(): void {
+    this.scrollingService.initById('productsList', 1500);
+    this.scrollingService.initById('usersList', 500);
     this.userService.setUser({
       id: '2',
       fullName: 'Mor Soferian',
@@ -47,13 +49,10 @@ export class MainNavComponent implements OnInit {
     return (e.target as Element).scrollTop;
   }
 
-@HostListener('window:scroll', ['$event']) // for window scroll events
+@HostListener('window:scroll', ['$event'])
   onScroll(event) {
-  console.log(this.sidenavContent)
-  // document.getElementsByTagName('mat-drawer-content')[0].scrollTo(0, 0)
-  this.scrollingService.update('product-list', event, 1500);
-    this.scrollingService.update('users-list', event, 1500);
-    // console.log('Scroll Event', this.getYPosition(event) );
+  this.scrollingService.update('productsList', event);
+  this.scrollingService.update('usersList', event);
   }
 
 }
