@@ -20,7 +20,13 @@ export class ProductsListComponent implements OnInit {
 
   subscriptions(){
     this.searchService.products.subscribe(products => {
-      if (products != null) {this.products = this.products.concat(products); }
+      if (products != null) {
+        if (products.shouldInitList){
+          this.products = products.products;
+          return;
+        }
+        this.products = this.products.concat(products.products);
+      }
     });
   }
 

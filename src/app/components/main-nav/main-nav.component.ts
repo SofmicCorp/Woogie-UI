@@ -5,8 +5,11 @@ import {distinctUntilChanged, filter, map, pairwise, share, shareReplay, throttl
 import {UserService} from '../../services/user.service';
 import DateTimeFormat = Intl.DateTimeFormat;
 import {CdkScrollable} from '@angular/cdk/overlay';
-import {MatSidenavContainer} from '@angular/material/sidenav';
+import {MatSidenavContainer, MatSidenavContent} from '@angular/material/sidenav';
 import {ScrollingService} from '../../services/scrolling.service';
+import {ExtendedScrollToOptions} from '@angular/cdk/scrolling/scrollable';
+import {Router} from '@angular/router';
+import {SearchType} from '../../classes/search/searchType';
 
 @Component({
   selector: 'app-main-nav',
@@ -15,7 +18,6 @@ import {ScrollingService} from '../../services/scrolling.service';
 })
 export class MainNavComponent implements OnInit {
 
-  // @ViewChild(MatSidenavContainer) sidenavContainer: MatSidenavContainer;
   @ViewChild('sidenavContent') sidenavContent: ElementRef<HTMLInputElement>;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -24,11 +26,12 @@ export class MainNavComponent implements OnInit {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private userService: UserService, private scrollingService: ScrollingService) {}
+  constructor(private breakpointObserver: BreakpointObserver, private userService: UserService, private scrollingService: ScrollingService, private router: Router) {}
 
   ngOnInit(): void {
-    this.scrollingService.initById('productsList', 1500);
-    this.scrollingService.initById('usersList', 500);
+    this.scrollingService.initById('productsList', 1500, 'mat-sidenav-content');
+    this.scrollingService.initById('usersList', 200, 'mat-sidenav-content');
+    this.scrollingService.initById('feedList', 1500, 'mat-sidenav-content');
     this.userService.setUser({
       id: '2',
       fullName: 'Mor Soferian',
@@ -42,7 +45,6 @@ export class MainNavComponent implements OnInit {
       createdAt: new DateTimeFormat(),
       updatedAt: new DateTimeFormat()
     });
-    console.log(this.sidenavContent)
   }
 
   getYPosition(e: Event): number {
@@ -51,8 +53,13 @@ export class MainNavComponent implements OnInit {
 
 @HostListener('window:scroll', ['$event'])
   onScroll(event) {
-  this.scrollingService.update('productsList', event);
-  this.scrollingService.update('usersList', event);
-  }
+    if (this.router.url.endsWith(SearchType.PRODUCTS)) {
+      this.scrollingService.update('productsList', event);
+    } else if (this.router.url.endsWith(SearchType.PEOPLE)){
+      this.scrollingService.update('usersList', event);
+    } else if (this.router.url.endsWith('home')){
+      this.scrollingService.update('feedList', event);
+    }
+}
 
 }

@@ -6,7 +6,7 @@
     </mat-form-field>
 
     <div class="toggle">
-      <mat-button-toggle-group name="fontStyle" aria-label="Font Style" value="PRODUCTS" >
+      <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [value]="this.searchType.toString().toUpperCase()" >
         <mat-button-toggle #toggleProducts value="PRODUCTS" (change)="onToggleChange($event.value)">Products</mat-button-toggle>
         <mat-button-toggle value="PEOPLE" (change)="onToggleChange($event.value)">People</mat-button-toggle>
       </mat-button-toggle-group>

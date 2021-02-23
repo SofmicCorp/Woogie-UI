@@ -3,4 +3,6 @@ export interface Search {
   q: string;
   userId: string;
   page: number;
+  limit: number;
+  offset: number;
 }

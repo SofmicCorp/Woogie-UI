@@ -7,7 +7,7 @@ export interface Scrolling {
   previousYPosition: number;
   triggerApiPosition: number;
   fetchNext: BehaviorSubject<boolean>;
-  currentAskedPage: number;
+  scrollUpElementTagName: string;
 }
 
 @Injectable({
@@ -18,9 +18,9 @@ export class ScrollingService {
   scrollingMap: Map<string, Scrolling>;
 
   constructor(private router: Router) {
-    this.initMap();
+    this.scrollingMap = new Map<string, Scrolling>();
     this.router.events.subscribe(res => {
-      this.initMap();
+      this.initAllPositions();
     });
   }
 
@@ -46,32 +46,39 @@ export class ScrollingService {
       return;
     }
     scrolling.fetchNext.next(false);
-    scrolling.currentAskedPage++;
   }
 
   getScrolling(id){
     return this.scrollingMap.get(id);
   }
 
-  initMap(){
-    this.scrollingMap = new Map<string, Scrolling>();
-  }
-
-  initById(id: string, triggerApiPosition){
+  initById(id: string, triggerApiPosition: number, scrollUpElementTagName: string){
     this.scrollingMap.set(id, {
       currentYPosition: 0,
       previousYPosition: 0,
       triggerApiPosition,
       fetchNext: new BehaviorSubject<boolean>(false),
-      currentAskedPage: 0
+      scrollUpElementTagName
     });
   }
 
-  refreshScrolling(){
-    const currentUrl = this.router.url;
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    this.router.onSameUrlNavigation = 'reload';
-    this.router.navigate([currentUrl]);
+  initPosition(id: string){
+    this.scrollingMap.get(id).currentYPosition = 0;
+    this.scrollingMap.get(id).previousYPosition = 0;
+  }
+
+  initAllPositions(){
+    this.scrollingMap.forEach((value: Scrolling, key: string) => {
+      this.initPosition(key);
+    });
+  }
+
+  scrollUp(id: string){
+    const element = document.getElementsByTagName(this.scrollingMap.get(id).scrollUpElementTagName)[0];
+    if (element != null){
+      element.scrollTo(0, 0);
+      this.initPosition(id);
+    }
   }
 
 }
