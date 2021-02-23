@@ -1,16 +1,11 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {HttpService} from '../../../../services/http.service';
-import {Product} from '../../../../classes/product/product';
 import {SearchService} from '../../../../services/search.service';
 import {Router} from '@angular/router';
 import {WoogieFrontRoutes} from '../../../../constants/woogie-front-routes';
 import {UserService} from '../../../../services/user.service';
-
-enum SearchType {
-  PRODUCTS = 'products',
-  PEOPLE = 'people',
-}
+import {General} from '../../../../constants/general';
+import {SearchType} from '../../../../classes/search/searchType';
 
 @Component({
   selector: 'app-search',
@@ -22,7 +17,6 @@ export class SearchComponent implements OnInit {
 
   myForm: FormGroup;
   searchType: SearchType;
-  products: Product[];
   @ViewChild('toggleProducts') ref: ElementRef;
 
   constructor(private searchService: SearchService, private router: Router, private userService: UserService) { }
@@ -30,14 +24,17 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
     this.packFormGroup();
     this.subscriptions();
-    this.searchType = SearchType.PRODUCTS;
+    this.router.url.endsWith(SearchType.PEOPLE) ? this.searchType = SearchType.PEOPLE : this.searchType = SearchType.PRODUCTS;
   }
 
   packFormGroup(){
     this.myForm = new FormGroup({
       q: new FormControl(null, Validators.required),
       sort: new FormControl(null),
-      userId: new FormControl(this.userService.getUser().id)
+      userId: new FormControl(this.userService.getUser().id),
+      page: new FormControl(0),
+      limit: new FormControl(General.usersLimit),
+      offset: new FormControl(0),
     });
   }
 

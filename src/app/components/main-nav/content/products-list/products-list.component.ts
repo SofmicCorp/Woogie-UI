@@ -6,7 +6,6 @@ import {SearchService} from '../../../../services/search.service';
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',
   styleUrls: ['./products-list.component.css'],
-  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductsListComponent implements OnInit {
 
@@ -15,13 +14,19 @@ export class ProductsListComponent implements OnInit {
   constructor(private searchService: SearchService) { }
 
   ngOnInit(): void {
+    this.products = [];
     this.subscriptions();
   }
 
   subscriptions(){
     this.searchService.products.subscribe(products => {
-      console.log(this.products)
-      this.products = products;
+      if (products != null) {
+        if (products.shouldInitList){
+          this.products = products.products;
+          return;
+        }
+        this.products = this.products.concat(products.products);
+      }
     });
   }
 

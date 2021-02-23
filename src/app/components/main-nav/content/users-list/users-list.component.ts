@@ -19,7 +19,13 @@ export class UsersListComponent implements OnInit {
 
   subscriptions(){
     this.searchService.users.subscribe(users => {
-      this.users = users;
+      if (users != null) {
+        if (users.shouldInitList){
+          this.users = users.users;
+          return;
+        }
+        this.users = this.users.concat(users.users);
+      }
     });
   }
 

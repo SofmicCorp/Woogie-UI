@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {HttpService} from '../../../../services/http.service';
 import {UserService} from '../../../../services/user.service';
 import {Action} from '../../../../classes/feed/action';
+import {ScrollingService} from '../../../../services/scrolling.service';
+import {General} from '../../../../constants/general';
 
 @Component({
   selector: 'app-feed-list',
@@ -11,13 +13,25 @@ import {Action} from '../../../../classes/feed/action';
 export class FeedListComponent implements OnInit {
 
   actions: Action[];
+  lastPage: number;
 
-  constructor(private userService: UserService, private httpService: HttpService) { }
+  constructor(private userService: UserService, private httpService: HttpService, private scrollingService: ScrollingService) { }
 
   ngOnInit(): void {
-    this.httpService.getFeed(this.userService.getUser().id, {}).subscribe(actions => {
-      this.actions = actions;
-      console.log(this.actions);
+    this.lastPage = 0;
+    this.scrollingService.scrollUp('feedList');
+    this.getFeed();
+    this.scrollingService.scrollingMap.get('feedList').fetchNext.subscribe(fetchNext => {
+      if (fetchNext) {
+        this.lastPage++;
+        this.getFeed();
+      }
+    });
+  }
+
+  getFeed(){
+    this.httpService.getFeed(this.userService.getUser().id, {page: this.lastPage}).subscribe(actions => {
+      this.lastPage === 0 ? this.actions = actions : this.actions.concat(actions);
     });
   }
 
