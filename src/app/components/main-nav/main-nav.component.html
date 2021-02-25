@@ -2,7 +2,7 @@
   <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
     <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
   </button>
-  <span class="logo">Woogie</span>
+  <span class="logo" (click)="onClickLogo()">Woogie</span>
   <app-header-content class="app-header-content"></app-header-content>
 </mat-toolbar>
 

@@ -1,4 +1,5 @@
 export const reactionsRoutesList = {
   createReaction: 'reactions/',
-  inactiveReaction: 'reactions/inactive'
+  inactiveReaction: 'reactions/inactive',
+  getAllReactionsByUserAndType: 'reactions/type',
 };

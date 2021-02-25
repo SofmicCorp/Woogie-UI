@@ -1,0 +1,53 @@
+<div class="profile-header">
+
+  <mat-list>
+    <mat-list-item >
+      <img matListAvatar [src]="user.image" [alt]="user.image" class="userImage">
+    </mat-list-item>
+  </mat-list>
+
+  <div class="userDetails">
+    <p class="fullName">{{user.fullName}}</p>
+    <div class="numOfFollowersAndFollowings">
+      <p class="followStat" *ngIf="followStats != null"><span class="bold">{{followStats.numOfFollowers}}</span> followers</p>
+      <p class="followStat" *ngIf="followStats != null"><span class="bold">{{followStats.numOfFollowing}}</span> following</p>
+    </div>
+    <button mat-raised-button class="editProfileButton">Edit Profile</button>
+  </div>
+
+</div>
+
+<mat-tab-group mat-align-tabs="center" (selectedTabChange)="onTabClick($event)">
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon [svgIcon]="'loved'" class="emoji"></mat-icon>
+      Loved
+    </ng-template>
+    <app-products-list [products]="products" *ngIf="selectedType == 'loved'"></app-products-list>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon [svgIcon]="'hated'" class="emoji"></mat-icon>
+      Hated
+    </ng-template>
+    <app-products-list [products]="products" *ngIf="selectedType == 'hated'"></app-products-list>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon [svgIcon]="'interested'" class="emoji"></mat-icon>
+      Interested
+    </ng-template>
+    <app-products-list [products]="products" *ngIf="selectedType == 'interested'"></app-products-list>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon [svgIcon]="'bought'" class="emoji"></mat-icon>
+      Bought
+    </ng-template>
+    <app-products-list [products]="products" *ngIf="selectedType == 'bought'"></app-products-list>
+  </mat-tab>
+</mat-tab-group>

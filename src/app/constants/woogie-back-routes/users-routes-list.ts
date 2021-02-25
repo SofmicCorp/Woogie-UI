@@ -5,4 +5,5 @@ export const usersRoutesList = {
   followUser: '/connections/follow',
   confirmUser: '/connections/confirm',
   unfollowUser: '/connections/unfollow',
+  followStats: '/stats/follow',
 };

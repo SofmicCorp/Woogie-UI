@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Product} from '../../../../classes/product/product';
 import {SearchService} from '../../../../services/search.service';
 
@@ -9,16 +9,18 @@ import {SearchService} from '../../../../services/search.service';
 })
 export class ProductsListComponent implements OnInit {
 
-  products: Product[];
+  @Input() products: Product[];
 
   constructor(private searchService: SearchService) { }
 
   ngOnInit(): void {
-    this.products = [];
-    this.subscriptions();
+    if (this.products == null){
+      this.products = [];
+      this.searchSubscription();
+    }
   }
 
-  subscriptions(){
+  searchSubscription(){
     this.searchService.products.subscribe(products => {
       if (products != null) {
         if (products.shouldInitList){

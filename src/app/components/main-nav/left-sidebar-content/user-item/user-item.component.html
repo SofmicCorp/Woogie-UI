@@ -1,4 +1,4 @@
-<mat-list-item >
+<mat-list-item (click)="onClickProfile()">
   <img matListAvatar [src]="user.image" [alt]="user.image">
   <a mat-list-item class="noHover">{{user.fullName}}</a>
 </mat-list-item>

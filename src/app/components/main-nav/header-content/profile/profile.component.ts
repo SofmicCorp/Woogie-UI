@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../../../../services/user.service';
+import {Router} from '@angular/router';
+import {WoogieFrontRoutes} from '../../../../constants/woogie-front-routes';
 
 @Component({
   selector: 'app-profile',
@@ -8,7 +10,7 @@ import {UserService} from '../../../../services/user.service';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   image: string;
 
@@ -16,4 +18,7 @@ export class ProfileComponent implements OnInit {
     this.image = this.userService.getUser().image;
   }
 
+  onClickProfile() {
+    this.router.navigateByUrl('/'  + WoogieFrontRoutes.home + '/' +  WoogieFrontRoutes.profile);
+  }
 }

@@ -55,6 +55,8 @@ import { NotificationItemComponent } from './components/main-nav/header-content/
 import {MainInterceptorService} from './services/interceptors/main-interceptor.service';
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {ReactionsDialogComponent} from './components/shared/reactions-dialog/reactions-dialog.component';
+import { ProfilePageComponent } from './components/main-nav/content/profile-page/profile-page.component';
+import {MatTabsModule} from "@angular/material/tabs";
 
 @NgModule({
   declarations: [
@@ -80,6 +82,7 @@ import {ReactionsDialogComponent} from './components/shared/reactions-dialog/rea
     FeedListComponent,
     NotificationItemComponent,
     ReactionsDialogComponent,
+    ProfilePageComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -118,6 +121,7 @@ import {ReactionsDialogComponent} from './components/shared/reactions-dialog/rea
     MatMenuModule,
     ClickOutsideModule,
     ScrollingModule,
+    MatTabsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: MainInterceptorService, multi: true },

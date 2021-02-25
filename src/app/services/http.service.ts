@@ -10,6 +10,7 @@ import {User} from '../classes/user/user';
 import {Action} from '../classes/feed/action';
 import {Notification} from '../classes/notification/notification';
 import {notificationsRoutesList} from '../constants/woogie-back-routes/notifications-routes-list';
+import {ReactionsEnum} from "../classes/reaction/reactions-enum";
 
 @Injectable({providedIn: 'root'})
 export class HttpService {
@@ -31,13 +32,16 @@ export class HttpService {
   }
 
   // Reactions
-
   createReaction(product: Product, reaction: Reaction){
     return this.http.post<any>(environment.woogieBackUrl + reactionsRoutesList.createReaction, {product, reaction});
   }
 
   inactiveReaction(body: {retailId: string, retailName: string, userId: string}){
     return this.http.put<any>(environment.woogieBackUrl + reactionsRoutesList.inactiveReaction, body);
+  }
+
+  getAllReactionsByUserAndType(params: any){
+    return this.http.get<Product[]>(environment.woogieBackUrl + reactionsRoutesList.getAllReactionsByUserAndType, {params});
   }
 
   // Users
@@ -55,6 +59,10 @@ export class HttpService {
 
   unfollowUser(urlParam: string, body: {userId: string}){
     return this.http.put<User>(environment.woogieBackUrl + usersRoutesList.baseUsers + urlParam + usersRoutesList.unfollowUser, body);
+  }
+
+  getUserFollowStat(urlParam: string){
+    return this.http.get<{numOfFollowing: string, numOfFollowers: string}>(environment.woogieBackUrl + usersRoutesList.baseUsers + urlParam + usersRoutesList.followStats);
   }
 
   // Notifications

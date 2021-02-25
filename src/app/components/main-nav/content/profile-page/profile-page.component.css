@@ -1,0 +1,51 @@
+.profile-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 170px;
+  margin-top: 20px;
+}
+
+img.mat-list-avatar.userImage{
+  height: 150px;
+  width: 150px;
+  margin-top: 70px;
+}
+
+.fullName {
+  font-size: x-large;
+}
+
+.userDetails {
+  margin-top: 0px;
+  margin-left: 80px;
+}
+
+.numOfFollowersAndFollowings {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 25px;
+}
+
+.followStat{
+  font-size: medium;
+  margin-right: 20px;
+}
+
+.bold {
+  font-weight: bold;
+  margin-right: 2px;
+}
+
+.editProfileButton {
+  color: black;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.emoji {
+  margin-right: 5px;
+}

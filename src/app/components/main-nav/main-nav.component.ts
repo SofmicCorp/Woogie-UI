@@ -1,15 +1,13 @@
-import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {fromEvent, Observable} from 'rxjs';
-import {distinctUntilChanged, filter, map, pairwise, share, shareReplay, throttleTime} from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import {map, shareReplay} from 'rxjs/operators';
 import {UserService} from '../../services/user.service';
 import DateTimeFormat = Intl.DateTimeFormat;
-import {CdkScrollable} from '@angular/cdk/overlay';
-import {MatSidenavContainer, MatSidenavContent} from '@angular/material/sidenav';
 import {ScrollingService} from '../../services/scrolling.service';
-import {ExtendedScrollToOptions} from '@angular/cdk/scrolling/scrollable';
 import {Router} from '@angular/router';
 import {SearchType} from '../../classes/search/searchType';
+import {WoogieFrontRoutes} from '../../constants/woogie-front-routes';
 
 @Component({
   selector: 'app-main-nav',
@@ -65,4 +63,7 @@ export class MainNavComponent implements OnInit {
     }
 }
 
+  onClickLogo() {
+    this.router.navigateByUrl('/'  + WoogieFrontRoutes.home);
+  }
 }
