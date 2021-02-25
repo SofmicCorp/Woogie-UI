@@ -18,6 +18,7 @@ export class FollowButtonComponent implements OnInit {
   constructor(private httpService: HttpService, private userService: UserService) { }
 
   ngOnInit(): void {
+    console.log(this.user.status)
     switch (this.user.status){
       case FollowStatusEnum.ACTIVE:
         this.buttonText = 'Unfollow';
@@ -37,6 +38,11 @@ export class FollowButtonComponent implements OnInit {
       case FollowStatusEnum.CONFIRMED:
         this.buttonText = 'Confirmed';
         this.color = null;
+        break;
+      default:
+        this.user.status = FollowStatusEnum.INACTIVE;
+        this.buttonText = 'Follow';
+        this.color = 'primary';
         break;
     }
   }

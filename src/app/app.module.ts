@@ -54,6 +54,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
 import { NotificationItemComponent } from './components/main-nav/header-content/notification/notification-item/notification-item.component';
 import {MainInterceptorService} from './services/interceptors/main-interceptor.service';
 import {ScrollingModule} from '@angular/cdk/scrolling';
+import {ReactionsDialogComponent} from './components/shared/reactions-dialog/reactions-dialog.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
     RightSidebarContentComponent,
     FeedListComponent,
     NotificationItemComponent,
+    ReactionsDialogComponent,
   ],
   imports: [
     AppRoutingModule,

@@ -26,11 +26,16 @@ export class HttpService {
     return this.http.get<Product[]>(environment.woogieBackUrl + productsRoutesList.searchProducts, {params});
   }
 
+  getProductUsersAndReactions(params: {userId: string, retailId: string, retailName: string}){
+    return this.http.get<User[]>(environment.woogieBackUrl + productsRoutesList.getProductUsersAndReactions, {params});
+  }
+
+  // Reactions
+
   createReaction(product: Product, reaction: Reaction){
     return this.http.post<any>(environment.woogieBackUrl + reactionsRoutesList.createReaction, {product, reaction});
   }
 
-  // Reactions
   inactiveReaction(body: {retailId: string, retailName: string, userId: string}){
     return this.http.put<any>(environment.woogieBackUrl + reactionsRoutesList.inactiveReaction, body);
   }

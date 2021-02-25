@@ -51,7 +51,6 @@ export class SearchService {
       this.lastSearchUsers = params;
       this.scrollingService.scrollingMap.get('usersList').fetchNext.subscribe(fetchNext => {
         if (fetchNext){
-          console.log('here')
           this.lastSearchUsers.offset += General.usersLimit;
           this.searchUsers(this.lastSearchUsers);
         }

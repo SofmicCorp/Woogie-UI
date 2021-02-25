@@ -10,7 +10,7 @@
 }
 
 .reactionImage{
-  padding-top: 5px;
+  /*padding-top: 5px;*/
   width: 29px;
   object-fit: contain;
 }
@@ -22,14 +22,14 @@
 }
 
 .clicked {
-  font-size: 45px;
-  width: 45px;
-  height: 45px;
-  line-height: 45px;
+  font-size: 42px;
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
 }
 
 .unClicked {
-  color: black;
+  color: gray;
   font-size: 40px;
   width: 40px;
   height: 40px;

@@ -10,7 +10,7 @@
       <p (click)="onClick(product.itemHref)">{{product.shippingCost == 0 ? "Free Shipping" : ''}}</p>
     </div>
     <div class="item5">
-      <app-product-stats [reactionsStats]="product.reactions" (createReaction)="createReaction($event)" (inactiveReaction)="inactiveReaction()"></app-product-stats>
+      <app-product-stats [reactionsStats]="product.reactions" [retailId]="product.retailId" [retailName]="product.retailName" (createReaction)="createReaction($event)" (inactiveReaction)="inactiveReaction()"></app-product-stats>
     </div>
   </div>
 </div>
