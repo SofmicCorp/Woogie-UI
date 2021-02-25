@@ -15,6 +15,7 @@ const appRoutes: Routes = [
       {path: '', component: FeedListComponent},
       {path: WoogieFrontRoutes.products, component: ProductsListComponent},
       {path: WoogieFrontRoutes.people, component: UsersListComponent},
+      {path: WoogieFrontRoutes.profile, component: UsersListComponent},
     ]
   }
   // {path: '**', pathMatch: 'full', component: NotFoundComponent}

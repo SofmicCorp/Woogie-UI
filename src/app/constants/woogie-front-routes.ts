@@ -6,4 +6,5 @@ export const WoogieFrontRoutes = {
   products: 'products',
   feed: 'feed',
   people: 'people',
+  profile: 'profile'
 };
