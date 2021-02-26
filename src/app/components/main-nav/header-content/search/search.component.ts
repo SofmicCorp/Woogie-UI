@@ -65,10 +65,10 @@ export class SearchComponent implements OnInit {
   onSearchClick(){
     if (this.myForm.valid){
       if (this.searchType === SearchType.PRODUCTS) {
-        this.router.navigateByUrl('/'  + WoogieFrontRoutes.home + '/' +  WoogieFrontRoutes.products);
+        this.router.navigate(['/'  + WoogieFrontRoutes.home + '/' +  WoogieFrontRoutes.products], {state: {fromSearch: true}});
         this.searchService.searchProducts(this.myForm.value);
       }else{
-        this.router.navigateByUrl('/' + WoogieFrontRoutes.home + '/' + WoogieFrontRoutes.people);
+        this.router.navigate(['/' + WoogieFrontRoutes.home + '/' + WoogieFrontRoutes.people], {state: {fromSearch: true}});
         this.searchService.searchUsers(this.myForm.value);
       }
     }
