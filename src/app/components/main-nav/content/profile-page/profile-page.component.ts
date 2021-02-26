@@ -7,6 +7,7 @@ import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatTabChangeEvent} from '@angular/material/tabs';
 import {Product} from '../../../../classes/product/product';
+import {Router} from "@angular/router";
 
 const HATED = iconSvg.hated;
 const LOVED = iconSvg.loved;
@@ -27,7 +28,7 @@ export class ProfilePageComponent implements OnInit {
   selectedType: string;
   products: Product[];
 
-  constructor(private userService: UserService, private httpService: HttpService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+  constructor(private userService: UserService, private httpService: HttpService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, router: Router) {
     this.products = [];
     iconRegistry.addSvgIconLiteral('hated', sanitizer.bypassSecurityTrustHtml(HATED));
     iconRegistry.addSvgIconLiteral('loved', sanitizer.bypassSecurityTrustHtml(LOVED));

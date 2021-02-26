@@ -23,11 +23,11 @@
   <div class="priceRange">
     <span>Price: </span>
     <mat-form-field appearance="outline" class="priceInput">
-      <input type="text" placeholder="Min" matInput (input)="onMinPriceChanged($event)" >
+      <input type="number" onkeydown="return event.keyCode !== 69" placeholder="Min" matInput (input)="onMinPriceChanged($event)" >
     </mat-form-field>
     -
     <mat-form-field appearance="outline" class="priceInput">
-      <input type="text" placeholder="Max" matInput (input)="onMaxPriceChanged($event)">
+      <input type="number" onkeydown="return event.keyCode !== 69" placeholder="Max" matInput (input)="onMaxPriceChanged($event)">
     </mat-form-field>
   </div>
 

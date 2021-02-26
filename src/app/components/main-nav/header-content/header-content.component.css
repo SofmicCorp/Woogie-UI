@@ -15,6 +15,7 @@
 }
 
 .right-container{
+  margin-right: 30px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -31,4 +32,12 @@
 .search-spinner{
   margin-top: 18px;
   margin-left: 8px;
+}
+
+.home {
+  margin-right: 25px;
+  font-size: 30px;
+  color: purple;
+  text-decoration: none;
+  cursor: pointer;
 }

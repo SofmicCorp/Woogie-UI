@@ -5,14 +5,21 @@
 
 .sidenav-left {
   width: 20%;
-  border-color: white;
+  border-color: #f1f2f5;
   background-color: #f1f2f5;
 }
 
 .sidenav-right{
   width: 20%;
-  border-color: white;
-  background-color: #f1f2f5;
+  border-color: #f1f2f5;
+  /*background-color: #f1f2f5;*/
+  background-color: white;
+}
+
+.right-sidebar-content {
+  margin-right: 30px;
+  margin-top: 20px;
+  margin-left: 10px;
 }
 
 .mat-toolbar.mat-primary {
@@ -45,7 +52,7 @@
   color: purple;
 }
 
-span.logo{
+.logo{
   cursor: pointer;
   font-family: Lobster;
   font-size: 30px;
