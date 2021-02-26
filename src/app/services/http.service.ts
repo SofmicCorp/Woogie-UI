@@ -45,6 +45,14 @@ export class HttpService {
   }
 
   // Users
+  getUser(urlParam: any){
+    return this.http.get<User>(environment.woogieBackUrl + usersRoutesList.baseUsers + urlParam);
+  }
+
+  getUserWithFollowingDetails(urlParam: any, params: any){
+    return this.http.get<User>(environment.woogieBackUrl + usersRoutesList.baseUsers + urlParam, {params});
+  }
+
   searchUsers(params: any){
     return this.http.get<User[]>(environment.woogieBackUrl + usersRoutesList.searchUser, {params});
   }

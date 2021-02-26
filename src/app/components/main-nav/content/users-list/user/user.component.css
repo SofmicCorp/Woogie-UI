@@ -44,12 +44,17 @@ img.mat-list-avatar.followImage {
   height: 70px;
 }
 
-.userName{
+.followImage {
+  cursor: pointer;
+}
+
+.userName {
+  cursor: pointer;
   font-size: medium;
   font-weight: bold;
 }
 
-.mutualFollowingUsers{
+.mutualFollowingUsers {
   font-size: small;
   color: gray;
 }

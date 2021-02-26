@@ -15,6 +15,8 @@ export interface User {
   type: ReactionsEnum; // type of reaction
   updatedReaction: boolean;
   mutualFollowingUsers: [string];
+  numOfFollowing: number;
+  numOfFollowers: number;
   createdAt: DateTimeFormat;
   updatedAt: DateTimeFormat;
 }

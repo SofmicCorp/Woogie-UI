@@ -28,6 +28,7 @@ img.mat-list-avatar.userImage{
   justify-content: flex-start;
   align-items: flex-start;
   margin-top: 25px;
+  margin-bottom: 12px;
 }
 
 .followStat{
@@ -43,7 +44,6 @@ img.mat-list-avatar.userImage{
 .editProfileButton {
   color: black;
   font-weight: bold;
-  margin-top: 12px;
 }
 
 .emoji {

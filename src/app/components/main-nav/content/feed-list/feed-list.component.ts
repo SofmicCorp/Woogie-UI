@@ -31,7 +31,6 @@ export class FeedListComponent implements OnInit {
 
   getFeed(){
     this.httpService.getFeed(this.userService.getUser().id, {page: this.lastPage}).subscribe(actions => {
-      console.log(actions)
       this.lastPage === 0 ? this.actions = actions : this.actions.concat(actions);
     });
   }

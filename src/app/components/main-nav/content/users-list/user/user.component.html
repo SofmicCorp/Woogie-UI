@@ -3,10 +3,10 @@
   <hr class="solid" *ngIf="isFeed">
   <div class="grid-container">
     <div class="item1">
-        <img matListAvatar [src]="user.image" [alt]="user.image" class="followImage">
+        <img matListAvatar [src]="user.image" [alt]="user.image" class="followImage" (click)="onClickUser()">
     </div>
     <div class="item2">
-      <p class="userName">{{user.fullName}}</p>
+      <p class="userName" (click)="onClickUser()">{{user.fullName}}</p>
       <p *ngIf="mutualFollowingUsersStr != null" class="mutualFollowingUsers">{{mutualFollowingUsersStr}}</p>
     </div>
     <div class="item3">

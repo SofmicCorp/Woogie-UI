@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../../../../../classes/user/user';
 import {Action} from '../../../../../classes/feed/action';
+import {Router} from '@angular/router';
+import {WoogieFrontRoutes} from '../../../../../constants/woogie-front-routes';
 
 @Component({
   selector: 'app-user',
@@ -16,7 +18,7 @@ export class UserComponent implements OnInit {
   mutualFollowingUsersStr: string;
   feedUserName: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.mutualFollowingUsersHandler();
@@ -44,6 +46,24 @@ export class UserComponent implements OnInit {
         this.actionStr = ' and '  + (usersKeys.length - 1) + ' others started to follow ';
       }
     }
+  }
+
+  onClickUser(){
+    this.router.navigate(['/'  + WoogieFrontRoutes.home + '/' +  WoogieFrontRoutes.profile, this.user.id],
+      {state: {user: {
+            id: this.user.id,
+            fullName: this.user.fullName,
+            firstName: this.user.firstName,
+            lastName: this.user.lastName,
+            email: this.user.email,
+            phoneNumber: this.user.phoneNumber,
+            image: this.user.image,
+            status: this.user.status,
+            type: this.user.type,
+            updatedReaction: this.user.updatedReaction,
+            mutualFollowingUsers: this.user.mutualFollowingUsers,
+          }}
+      });
   }
 
 }

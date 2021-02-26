@@ -2,17 +2,18 @@
 
   <mat-list>
     <mat-list-item >
-      <img matListAvatar [src]="user.image" [alt]="user.image" class="userImage">
+      <img matListAvatar [src]="user.image" [alt]="user.image" class="userImage" *ngIf="user != null">
     </mat-list-item>
   </mat-list>
 
-  <div class="userDetails">
+  <div class="userDetails" *ngIf="user != null">
     <p class="fullName">{{user.fullName}}</p>
     <div class="numOfFollowersAndFollowings">
-      <p class="followStat" *ngIf="followStats != null"><span class="bold">{{followStats.numOfFollowers}}</span> followers</p>
-      <p class="followStat" *ngIf="followStats != null"><span class="bold">{{followStats.numOfFollowing}}</span> following</p>
+      <p class="followStat" *ngIf="user != null"><span class="bold">{{user.numOfFollowers}}</span> followers</p>
+      <p class="followStat" *ngIf="user != null"><span class="bold">{{user.numOfFollowing}}</span> following</p>
     </div>
-    <button mat-raised-button class="editProfileButton">Edit Profile</button>
+    <button mat-raised-button class="editProfileButton" *ngIf="isMyProfile">Edit Profile</button>
+    <app-follow-button [user]="user" *ngIf="!isMyProfile"></app-follow-button>
   </div>
 
 </div>

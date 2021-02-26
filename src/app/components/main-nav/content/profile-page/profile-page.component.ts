@@ -1,5 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {UserService} from '../../../../services/user.service';
+import {Component, OnInit} from '@angular/core';
 import {User} from '../../../../classes/user/user';
 import {HttpService} from '../../../../services/http.service';
 import {iconSvg} from '../../../../constants/icons-svg';
@@ -7,7 +6,9 @@ import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatTabChangeEvent} from '@angular/material/tabs';
 import {Product} from '../../../../classes/product/product';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from '../../../../services/user.service';
+import {WoogieFrontRoutes} from '../../../../constants/woogie-front-routes';
 
 const HATED = iconSvg.hated;
 const LOVED = iconSvg.loved;
@@ -21,15 +22,14 @@ const BOUGHT = iconSvg.bought;
 })
 export class ProfilePageComponent implements OnInit {
 
-  @Input() otherUser;
+  userId: string;
   user: User;
-  followStats: {numOfFollowing: string, numOfFollowers: string};
   tabIndexMap = ['loved', 'hated', 'interested', 'bought'];
   selectedType: string;
   products: Product[];
+  isMyProfile: boolean;
 
-  constructor(private userService: UserService, private httpService: HttpService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, router: Router) {
-    this.products = [];
+  constructor(private httpService: HttpService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private router: Router, private activatedRoute: ActivatedRoute, private userService: UserService) {
     iconRegistry.addSvgIconLiteral('hated', sanitizer.bypassSecurityTrustHtml(HATED));
     iconRegistry.addSvgIconLiteral('loved', sanitizer.bypassSecurityTrustHtml(LOVED));
     iconRegistry.addSvgIconLiteral('interested', sanitizer.bypassSecurityTrustHtml(INTERESTED));
@@ -37,11 +37,23 @@ export class ProfilePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.user = this.otherUser == null ? this.userService.getUser() : this.otherUser;
+    if (this.router.url.endsWith(WoogieFrontRoutes.myProfile)){
+      this.userId = this.userService.getUser().id;
+      this.isMyProfile = true;
+    } else {
+      this.userId = this.activatedRoute.snapshot.paramMap.get('id');
+    }
+    this.getUser();
+    console.log(this.user);
+    this.products = [];
     this.selectedType = 'loved';
     this.getProductsByType();
-    this.httpService.getUserFollowStat(this.user.id).subscribe(followStats => {
-      this.followStats = followStats;
+  }
+
+  getUser(){
+    this.httpService.getUserWithFollowingDetails(this.userId, {id: this.userService.getUser().id}).subscribe(user => {
+        this.user = user;
+        console.log(this.user);
     });
   }
 
@@ -52,9 +64,8 @@ export class ProfilePageComponent implements OnInit {
   }
 
   getProductsByType(){
-    this.httpService.getAllReactionsByUserAndType({id: this.userService.getUser().id, userId: this.user.id, type: this.selectedType, offset: 0, limit: 25}).subscribe(products => {
+    this.httpService.getAllReactionsByUserAndType({id: this.userService.getUser().id, userId: this.userId, type: this.selectedType, offset: 0, limit: 25}).subscribe(products => {
       this.products = products;
-      console.log(products);
     });
   }
 

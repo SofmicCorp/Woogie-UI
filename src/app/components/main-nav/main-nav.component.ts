@@ -43,6 +43,8 @@ export class MainNavComponent implements OnInit {
       type: null,
       updatedReaction: true,
       status: null,
+      numOfFollowing: null,
+      numOfFollowers: null,
       createdAt: new DateTimeFormat(),
       updatedAt: new DateTimeFormat()
     });

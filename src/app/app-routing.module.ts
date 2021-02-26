@@ -16,7 +16,8 @@ const appRoutes: Routes = [
       {path: '', component: FeedListComponent},
       {path: WoogieFrontRoutes.products, component: ProductsListComponent, canActivate: [FirstEntranceGuardService]},
       {path: WoogieFrontRoutes.people, component: UsersListComponent, canActivate: [FirstEntranceGuardService]},
-      {path: WoogieFrontRoutes.profile, component: ProfilePageComponent},
+      {path: WoogieFrontRoutes.profile + '/me', component: ProfilePageComponent},
+      {path: WoogieFrontRoutes.profile + '/:id', component: ProfilePageComponent},
     ]
   }
   // {path: '**', pathMatch: 'full', component: NotFoundComponent}
