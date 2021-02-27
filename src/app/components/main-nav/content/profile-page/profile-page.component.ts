@@ -37,6 +37,13 @@ export class ProfilePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.activatedRoute.url.subscribe(url => {
+      this.initProfilePage();
+    });
+    this.initProfilePage();
+  }
+
+  initProfilePage(){
     if (this.router.url.endsWith(WoogieFrontRoutes.myProfile)){
       this.userId = this.userService.getUser().id;
       this.isMyProfile = true;

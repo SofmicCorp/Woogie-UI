@@ -1,6 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Notification} from '../../../../../classes/notification/notification';
 import {FollowStatusEnum} from '../../../../../classes/user/follow-status-enum';
+import {WoogieFrontRoutes} from '../../../../../constants/woogie-front-routes';
+import {HttpService} from '../../../../../services/http.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-notification-item',
@@ -13,7 +16,7 @@ export class NotificationItemComponent implements OnInit {
   description: string;
   status: FollowStatusEnum;
 
-  constructor() { }
+  constructor(private httpService: HttpService, private router: Router) { }
 
   ngOnInit(): void {
     switch (this.notification.type) {
@@ -31,6 +34,26 @@ export class NotificationItemComponent implements OnInit {
             this.status = FollowStatusEnum.CONFIRMED;
         }
     }
+  }
+
+  onNotificationClick(notification: Notification) {
+    this.httpService.dirtyNotifications(notification.id).subscribe(res => {});
+    notification.dirty = true;
+    this.router.navigate(['/'  + WoogieFrontRoutes.home + '/' +  WoogieFrontRoutes.profile, notification.senderId],
+      {state: {user: {
+            id: notification.senderId,
+            fullName: notification.senderFullname,
+            firstName: null,
+            lastName: null,
+            email: null,
+            phoneNumber: null,
+            image: notification.senderImage,
+            status: notification.connectionStatus,
+            type: null,
+            updatedReaction: null,
+            mutualFollowingUsers: null,
+          }}
+      });
   }
 
 }

@@ -2,6 +2,8 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {UserService} from '../../../../services/user.service';
 import {HttpService} from '../../../../services/http.service';
 import {Notification} from '../../../../classes/notification/notification';
+import {WoogieFrontRoutes} from '../../../../constants/woogie-front-routes';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-notification',
@@ -16,7 +18,7 @@ export class NotificationComponent implements OnInit, AfterViewInit {
   notificationIds: Array<string>;
   seenCounter: number;
 
-  constructor(private userService: UserService, private httpService: HttpService) { }
+  constructor(private userService: UserService, private httpService: HttpService, private router: Router) { }
 
   ngOnInit(): void {
     this.seenCounter = 0;
@@ -59,11 +61,6 @@ export class NotificationComponent implements OnInit, AfterViewInit {
 
   openNotification(state: boolean) {
     this.showDropDown = state;
-  }
-
-  onNotificationClick(notification: Notification) {
-      this.httpService.dirtyNotifications(notification.id).subscribe(res => {});
-      notification.dirty = true;
   }
 
 }

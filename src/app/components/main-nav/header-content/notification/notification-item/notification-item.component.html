@@ -1,8 +1,8 @@
 <div class="user">
     <div class="avatar">
-      <img matListAvatar [src]="notification.senderImage" [alt]="notification.senderImage" class="followImage">
+      <img matListAvatar [src]="notification.senderImage" [alt]="notification.senderImage" class="followImage" (click)="onNotificationClick(notification)">
     </div>
-    <div class="description">
+    <div class="description" (click)="onNotificationClick(notification)">
       <p class="userName">{{notification.senderFullname}}</p>
       <p class="description">{{this.description}}</p>
     </div>
