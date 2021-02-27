@@ -62,4 +62,8 @@ export class SearchService {
     this.filtersUpdatedBehaviorSubject.next(filters);
   }
 
+  showFilter(){
+
+  }
+
 }

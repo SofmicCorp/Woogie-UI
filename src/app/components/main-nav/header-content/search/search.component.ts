@@ -62,7 +62,7 @@ export class SearchComponent implements OnInit {
     this.searchType = SearchType[value.toUpperCase()];
   }
 
-  onSearchClick(){
+  onSearchIconClick(){
     if (this.myForm.valid){
       if (this.searchType === SearchType.PRODUCTS) {
         this.router.navigate(['/'  + WoogieFrontRoutes.home + '/' +  WoogieFrontRoutes.products], {state: {fromSearch: true}});
@@ -72,6 +72,10 @@ export class SearchComponent implements OnInit {
         this.searchService.searchUsers(this.myForm.value);
       }
     }
+  }
+
+  onSearchInputClick(){
+
   }
 
 }
