@@ -10,3 +10,11 @@ button{
   height: 90px;
   margin-bottom: 20px;
 }
+
+.reactionsDialog .mat-dialog-container{
+  background-color: #f1f2f5;
+}
+
+::ng-deep .mat-dialog-container {
+  background-color: #f1f2f5;
+}

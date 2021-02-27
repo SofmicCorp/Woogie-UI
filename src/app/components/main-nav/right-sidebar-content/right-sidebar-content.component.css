@@ -1,3 +1,22 @@
+.iconDiv {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.filterIcon {
+  color: purple;
+  background-color: white;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.filterButton {
+  color: purple;
+}
+
 .priceRange {
   display: flex;
   align-items: center;

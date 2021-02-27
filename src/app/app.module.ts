@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent, SafePipe } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import { ProductReactionsComponent } from './components/main-nav/content/products-list/product/product-reactions/product-reactions.component';
 import { ReactionComponent } from './components/main-nav/content/products-list/product/product-reactions/emoji/reaction.component';
@@ -56,7 +55,8 @@ import {MainInterceptorService} from './services/interceptors/main-interceptor.s
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {ReactionsDialogComponent} from './components/shared/reactions-dialog/reactions-dialog.component';
 import { ProfilePageComponent } from './components/main-nav/content/profile-page/profile-page.component';
-import {MatTabsModule} from "@angular/material/tabs";
+import {MatTabsModule} from '@angular/material/tabs';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -87,7 +87,6 @@ import {MatTabsModule} from "@angular/material/tabs";
   imports: [
     AppRoutingModule,
     BrowserModule,
-    BrowserAnimationsModule,
     MatButtonModule,
     LayoutModule,
     MatToolbarModule,
@@ -122,6 +121,7 @@ import {MatTabsModule} from "@angular/material/tabs";
     ClickOutsideModule,
     ScrollingModule,
     MatTabsModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: MainInterceptorService, multi: true },

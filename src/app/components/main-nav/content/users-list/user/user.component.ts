@@ -3,6 +3,15 @@ import {User} from '../../../../../classes/user/user';
 import {Action} from '../../../../../classes/feed/action';
 import {Router} from '@angular/router';
 import {WoogieFrontRoutes} from '../../../../../constants/woogie-front-routes';
+import {iconSvg} from '../../../../../constants/icons-svg';
+import {MatIconRegistry} from "@angular/material/icon";
+import {DomSanitizer} from "@angular/platform-browser";
+import {ReactionsEnum} from "../../../../../classes/reaction/reactions-enum";
+
+const HATED = iconSvg.hated;
+const LOVED = iconSvg.loved;
+const INTERESTED = iconSvg.interested;
+const BOUGHT = iconSvg.bought;
 
 @Component({
   selector: 'app-user',
@@ -17,12 +26,34 @@ export class UserComponent implements OnInit {
   actionStr: string;
   mutualFollowingUsersStr: string;
   feedUserName: string;
+  reactionColor: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIconLiteral('hated', sanitizer.bypassSecurityTrustHtml(HATED));
+    iconRegistry.addSvgIconLiteral('loved', sanitizer.bypassSecurityTrustHtml(LOVED));
+    iconRegistry.addSvgIconLiteral('interested', sanitizer.bypassSecurityTrustHtml(INTERESTED));
+    iconRegistry.addSvgIconLiteral('bought', sanitizer.bypassSecurityTrustHtml(BOUGHT));
+  }
 
   ngOnInit(): void {
     this.mutualFollowingUsersHandler();
     this.feedHandler();
+
+    switch (this.user.type) {
+      case ReactionsEnum.BOUGHT:
+        this.reactionColor = 'green';
+        break;
+      case ReactionsEnum.HATED:
+        this.reactionColor = 'saddlebrown';
+        break;
+      case ReactionsEnum.INTERESTED:
+        this.reactionColor = 'yellow';
+        break;
+      case ReactionsEnum.LOVED:
+        this.reactionColor = 'red';
+        break;
+    }
+
   }
 
   mutualFollowingUsersHandler(){

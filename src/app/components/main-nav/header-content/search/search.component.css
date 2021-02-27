@@ -63,3 +63,11 @@ mat-button-toggle {
 /*  margin-left: 25px;*/
 /*  font-size: 25px;*/
 /*}*/
+
+.mat-input-invalid .mat-input-placeholder {
+  color: green !important;
+}
+
+.mat-input-invalid .mat-input-ripple {
+  background-color: green !important;
+}

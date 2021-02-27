@@ -69,6 +69,7 @@ export class ProductReactionsComponent implements OnInit {
         });
         const dialogRef = this.dialog.open(ReactionsDialogComponent, {
           width: '700px',
+          panelClass: 'reactionsDialog',
           data: this.users
         });
 

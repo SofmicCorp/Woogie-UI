@@ -1,13 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SortEnum} from '../../../classes/search/sort-enum';
 import {ConditionEnum} from '../../../classes/search/condition-enum';
 import {FormControl, FormGroup} from '@angular/forms';
 import {SearchService} from '../../../services/search.service';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-right-sidebar-content',
   templateUrl: './right-sidebar-content.component.html',
   styleUrls: ['./right-sidebar-content.component.css'],
+  animations: [trigger('filtersAnimation', [
+    state('in', style({
+      opacity: 1,
+      transform: 'translateX(0px)'
+    })),
+    transition('out => in', [
+      style({
+        opacity: 0,
+        transform: 'translateX(100px)'
+      }),
+      animate(300)
+    ]),
+    state('out', style({
+      opacity: 0,
+      transform: 'translateX(100px)'
+    })),
+    transition('in => out', [
+      style({
+        opacity: 1,
+        transform: 'translateX(0px)'
+      }),
+      animate(300)
+    ]),
+  ]),
+  ]
 })
 export class RightSidebarContentComponent implements OnInit {
 
@@ -17,8 +43,10 @@ export class RightSidebarContentComponent implements OnInit {
   conditionOptions: Array<{}>;
   minPrice: '';
   maxPrice: '';
+  state = 'out';
 
-  constructor(private searchService: SearchService) { }
+  constructor(private searchService: SearchService) {
+  }
 
   ngOnInit(): void {
 
@@ -33,18 +61,20 @@ export class RightSidebarContentComponent implements OnInit {
       {value: ConditionEnum.NEW, viewValue: 'New'},
       {value: ConditionEnum.USED, viewValue: 'Used'}
     ];
-
     this.packFormGroup();
     this.subscriptions();
   }
 
-  subscriptions(){
+  subscriptions() {
     this.myForm.valueChanges.subscribe(filters => {
       this.searchService.filtersUpdated(filters === '' ? null : filters);
     });
+    this.searchService.showFiltersBehaviorSubject.subscribe(show => {
+      if (show){this.showFilters(); }
+    });
   }
 
-  packFormGroup(){
+  packFormGroup() {
     this.myForm = new FormGroup({
       sort: new FormControl(null),
       conditions: new FormControl(null),
@@ -61,7 +91,7 @@ export class RightSidebarContentComponent implements OnInit {
       priceFilter = '[' + this.minPrice + ']';
     } else if (this.minPrice == null && this.maxPrice != null) {
       priceFilter = '[' + '..' + this.maxPrice + ']';
-    }else{
+    } else {
       return;
     }
     this.myForm.patchValue({price: priceFilter + ',priceCurrency:USD'});
@@ -69,17 +99,25 @@ export class RightSidebarContentComponent implements OnInit {
   }
 
   onMinPriceChanged($event: any) {
-    if ($event != null && $event.target != null){
+    if ($event != null && $event.target != null) {
       this.minPrice = $event.target.value;
       this.priceFormatting();
     }
   }
 
   onMaxPriceChanged($event: any) {
-    if ($event != null && $event.target != null){
+    if ($event != null && $event.target != null) {
       this.maxPrice = $event.target.value;
       this.priceFormatting();
     }
+  }
+
+  onAnimate() {
+    this.state === 'in' ? this.state = 'out' : this.state = 'in';
+  }
+
+  showFilters() {
+    this.state = 'in';
   }
 
 }
