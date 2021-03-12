@@ -56,7 +56,9 @@ import {MainInterceptorService} from './services/interceptors/main-interceptor.s
 import {ScrollingModule} from '@angular/cdk/scrolling';
 import {ReactionsDialogComponent} from './components/shared/reactions-dialog/reactions-dialog.component';
 import { ProfilePageComponent } from './components/main-nav/content/profile-page/profile-page.component';
-import {MatTabsModule} from "@angular/material/tabs";
+import {MatTabsModule} from '@angular/material/tabs';
+import {GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +85,7 @@ import {MatTabsModule} from "@angular/material/tabs";
     NotificationItemComponent,
     ReactionsDialogComponent,
     ProfilePageComponent,
+    LoginComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -122,9 +125,26 @@ import {MatTabsModule} from "@angular/material/tabs";
     ClickOutsideModule,
     ScrollingModule,
     MatTabsModule,
+    SocialLoginModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: MainInterceptorService, multi: true },
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider('805895933099-kstnnjis8onuvi6l6onchstamrjuvv3n.apps.googleusercontent.com')
+          },
+          // {
+          //   id: FacebookLoginProvider.PROVIDER_ID,
+          //   provider: new FacebookLoginProvider('clientId')
+          // }
+        ]
+      } as SocialAuthServiceConfig,
+    }
   ],
   bootstrap: [AppComponent]
 })
