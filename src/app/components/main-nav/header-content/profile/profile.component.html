@@ -1,5 +1,5 @@
 <mat-list>
   <mat-list-item >
-    <img matListAvatar [src]="user.image" [alt]="user.image" class="userImage" (click)="onClickProfile()">
+    <img *ngIf="user != null" matListAvatar [src]="user.image" [alt]="user.image" class="userImage" (click)="onClickProfile()">
   </mat-list-item>
 </mat-list>

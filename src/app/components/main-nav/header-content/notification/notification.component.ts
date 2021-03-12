@@ -2,8 +2,7 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {UserService} from '../../../../services/user.service';
 import {HttpService} from '../../../../services/http.service';
 import {Notification} from '../../../../classes/notification/notification';
-import {WoogieFrontRoutes} from '../../../../constants/woogie-front-routes';
-import {Router} from '@angular/router';
+import {User} from '../../../../classes/user/user';
 
 @Component({
   selector: 'app-notification',
@@ -17,8 +16,9 @@ export class NotificationComponent implements OnInit, AfterViewInit {
   showDropDown: boolean;
   notificationIds: Array<string>;
   seenCounter: number;
+  user: User;
 
-  constructor(private userService: UserService, private httpService: HttpService, private router: Router) { }
+  constructor(private userService: UserService, private httpService: HttpService) { }
 
   ngOnInit(): void {
     this.seenCounter = 0;
@@ -28,7 +28,17 @@ export class NotificationComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.httpService.getNotifications({userId: this.userService.getUser().id}).subscribe(notifications => {
+    this.userService.userBehaviorSubject.subscribe(user => {
+      if (user != null) {
+        this.user = user;
+        this.getNotifications();
+      }
+    });
+  }
+
+  getNotifications(){
+    this.httpService.getNotifications({userId: this.user.id}).subscribe(notifications => {
+      console.log(notifications)
       if (notifications != null) {
         this.notifications = notifications;
         this.getNotificationIds();

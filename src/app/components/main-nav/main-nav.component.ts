@@ -30,24 +30,6 @@ export class MainNavComponent implements OnInit {
     this.scrollingService.initById('productsList', 1500, 'mat-sidenav-content');
     this.scrollingService.initById('usersList', 200, 'mat-sidenav-content');
     this.scrollingService.initById('feedList', 1500, 'mat-sidenav-content');
-    this.userService.setUser({
-      id: '2',
-      userId: null,
-      fullName: 'Mor Soferian',
-      firstName: 'Mor',
-      lastName: 'Soferian',
-      email: 'morsof48@gmail.com',
-      phoneNumber: '0548128675',
-      image: 'https://scontent.ftlv6-1.fna.fbcdn.net/v/t1.0-9/52974078_10219567634645312_4529992776930033664_n.jpg?_nc_cat=107&ccb=2&_nc_sid=09cbfe&_nc_ohc=Tq_PTBCa7RwAX_uL3mr&_nc_ht=scontent.ftlv6-1.fna&oh=135300268ba769fecf475fbaad583b61&oe=603D3A7D',
-      mutualFollowingUsers: null,
-      type: null,
-      updatedReaction: true,
-      status: null,
-      numOfFollowing: null,
-      numOfFollowers: null,
-      createdAt: new DateTimeFormat(),
-      updatedAt: new DateTimeFormat()
-    });
   }
 
   getYPosition(e: Event): number {

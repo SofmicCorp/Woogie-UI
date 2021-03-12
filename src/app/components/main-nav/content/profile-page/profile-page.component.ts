@@ -44,23 +44,30 @@ export class ProfilePageComponent implements OnInit {
   }
 
   initProfilePage(){
-    if (this.router.url.endsWith(WoogieFrontRoutes.myProfile)){
-      this.userId = this.userService.getUser().id;
-      this.isMyProfile = true;
-    } else {
-      this.userId = this.activatedRoute.snapshot.paramMap.get('id');
-    }
-    this.getUser();
-    console.log(this.user);
-    this.products = [];
-    this.selectedType = 'loved';
-    this.getProductsByType();
+    this.userService.userBehaviorSubject.subscribe(user => {
+      if (user != null) {
+        console.log('initProfilePage', user)
+        if (this.router.url.endsWith(WoogieFrontRoutes.myProfile)) {
+          this.userId = user.id.toString();
+          this.isMyProfile = true;
+        } else {
+          this.userId = this.activatedRoute.snapshot.paramMap.get('id');
+        }
+        this.getUserWithFollowingDetails();
+        this.products = [];
+        this.selectedType = 'loved';
+        this.getProductsByType();
+      }
+    });
   }
 
-  getUser(){
+  getUserWithFollowingDetails(){
+    console.log('this.userId', this.userId)
     this.httpService.getUserWithFollowingDetails(this.userId, {id: this.userService.getUser().id}).subscribe(user => {
+      if (user != null) {
         this.user = user;
-        console.log(this.user);
+        console.log('getUserWithFollowingDetails', this.user);
+      }
     });
   }
 

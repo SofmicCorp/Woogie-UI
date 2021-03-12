@@ -1,6 +1,7 @@
 export const usersRoutesList = {
   baseUsers: 'users/',
   feed: '/feed',
+  sign: 'sign',
   searchUser: 'users/search',
   followUser: '/connections/follow',
   confirmUser: '/connections/confirm',
