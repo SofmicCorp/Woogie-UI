@@ -7,12 +7,13 @@ import {UsersListComponent} from './components/main-nav/content/users-list/users
 import {FeedListComponent} from './components/main-nav/content/feed-list/feed-list.component';
 import {ProfilePageComponent} from './components/main-nav/content/profile-page/profile-page.component';
 import {FirstEntranceGuardService} from './services/first-entrance-guard.service';
+import {LoginComponent} from './components/login/login.component';
+import {AuthGuardService} from './services/guards/auth-guard.service';
 
 const appRoutes: Routes = [
-  // {path: MercuryPaths.login, component: LoginComponent},
-  // {path: MercuryPaths.callback, component: CallbackComponent},
+  {path: WoogieFrontRoutes.login, component: LoginComponent},
   {path: '', redirectTo: '/' + WoogieFrontRoutes.home, pathMatch: 'full'},
-  {path: WoogieFrontRoutes.home, component: MainNavComponent, children: [
+  {path: WoogieFrontRoutes.home, component: MainNavComponent, canActivate: [AuthGuardService], children: [
       {path: '', component: FeedListComponent},
       {path: WoogieFrontRoutes.products, component: ProductsListComponent, canActivate: [FirstEntranceGuardService]},
       {path: WoogieFrontRoutes.people, component: UsersListComponent, canActivate: [FirstEntranceGuardService]},

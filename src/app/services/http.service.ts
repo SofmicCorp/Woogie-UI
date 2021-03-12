@@ -10,7 +10,6 @@ import {User} from '../classes/user/user';
 import {Action} from '../classes/feed/action';
 import {Notification} from '../classes/notification/notification';
 import {notificationsRoutesList} from '../constants/woogie-back-routes/notifications-routes-list';
-import {ReactionsEnum} from "../classes/reaction/reactions-enum";
 
 @Injectable({providedIn: 'root'})
 export class HttpService {
@@ -45,6 +44,11 @@ export class HttpService {
   }
 
   // Users
+
+  sign(body: any){
+    return this.http.post<User>(environment.woogieBackUrl + usersRoutesList.baseUsers + usersRoutesList.sign, body);
+  }
+
   getUser(urlParam: any){
     return this.http.get<User>(environment.woogieBackUrl + usersRoutesList.baseUsers + urlParam);
   }

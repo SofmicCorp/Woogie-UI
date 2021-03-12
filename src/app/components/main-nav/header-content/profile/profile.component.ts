@@ -17,6 +17,13 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
+    this.subscriptions();
+  }
+
+  subscriptions(){
+    this.userService.userBehaviorSubject.subscribe(user => {
+      this.user = user;
+    });
   }
 
   onClickProfile() {
