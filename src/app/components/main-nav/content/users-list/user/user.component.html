@@ -3,7 +3,10 @@
   <hr class="solid" *ngIf="isFeed">
   <div class="grid-container">
     <div class="item1">
+      <div style="display: inline-block">
         <img matListAvatar [src]="user.image" [alt]="user.image" class="followImage" (click)="onClickUser()">
+        <mat-icon [svgIcon]="user.type" [ngStyle]="{color: reactionColor}" style="position: relative" *ngIf="user.type != null"></mat-icon>
+      </div>
     </div>
     <div class="item2">
       <p class="userName" (click)="onClickUser()">{{user.fullName}}</p>

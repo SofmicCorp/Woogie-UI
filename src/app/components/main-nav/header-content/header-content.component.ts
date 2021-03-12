@@ -1,5 +1,6 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IndicationsService} from '../../../services/indications.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header-content',
@@ -10,7 +11,7 @@ export class HeaderContentComponent implements OnInit {
 
   isFetching: boolean;
 
-  constructor(public indicationsService: IndicationsService) { }
+  constructor(public indicationsService: IndicationsService, private router: Router) { }
 
   ngOnInit(): void {
     this.indicationsService.isFetchingBehaviorSubject.subscribe(isFetching => {
@@ -20,4 +21,7 @@ export class HeaderContentComponent implements OnInit {
     });
   }
 
+  onHomeClick() {
+    this.router.navigate(['/']);
+  }
 }

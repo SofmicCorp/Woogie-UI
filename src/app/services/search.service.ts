@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Product} from '../classes/product/product';
-import {BehaviorSubject, pipe} from 'rxjs';
+import {BehaviorSubject} from 'rxjs';
 import {HttpService} from './http.service';
 import {User} from '../classes/user/user';
 import {Filters} from '../classes/search/filters';
@@ -18,6 +18,7 @@ export class SearchService {
   filtersUpdatedBehaviorSubject = new BehaviorSubject<Filters>(null);
   lastSearchProducts: Search;
   lastSearchUsers: Search;
+  showFiltersBehaviorSubject = new BehaviorSubject<boolean>(false);
 
   constructor(private httpService: HttpService, private scrollingService: ScrollingService) {}
 
@@ -63,7 +64,7 @@ export class SearchService {
   }
 
   showFilter(){
-
+    this.showFiltersBehaviorSubject.next(true);
   }
 
 }

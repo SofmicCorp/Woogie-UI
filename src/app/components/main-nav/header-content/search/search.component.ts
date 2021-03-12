@@ -75,7 +75,7 @@ export class SearchComponent implements OnInit {
   }
 
   onSearchInputClick(){
-
+    this.searchService.showFilter();
   }
 
 }
