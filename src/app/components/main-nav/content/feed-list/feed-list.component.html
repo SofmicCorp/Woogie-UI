@@ -1,6 +1,13 @@
 <mat-list style="height: 100%; width: 100%">
+
+  <div *ngIf="nothingToShow" class="nothingToShowWrapper">
+    <h2>Your feed is empty, Try follow other users for better Woogie experience!</h2>
+    <img class="owlImg" src='../../../../../assets/img/woogie_owl.png' >
+  </div>
+
   <mat-list-item *ngFor="let action of actions" class="{{action.actionType.toString() == 'follow' ? 'userFeed' :  'productFeed'}}">
     <app-user *ngIf="action.actionType.toString() == 'follow'" [user]="action.details" [isFeed]="true" [action]="action" style="width: 100%; height: 100%"></app-user>
     <app-product *ngIf="action.actionType.toString() == 'reaction'" [product]="action.details" [isFeed]="true" [action]="action" style="width: 100%; height: 100%"></app-product>
   </mat-list-item>
+
 </mat-list>

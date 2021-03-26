@@ -9,3 +9,15 @@
   max-width: 100%;
   margin-bottom: 20px;
 }
+
+.owlImg {
+  width: 20%;
+}
+
+.nothingToShowWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 50px;
+}

@@ -14,6 +14,7 @@ export class FeedListComponent implements OnInit {
 
   actions: Action[];
   lastPage: number;
+  nothingToShow = false;
 
   constructor(private userService: UserService, private httpService: HttpService, private scrollingService: ScrollingService, private authService: AuthService) { }
 
@@ -40,6 +41,7 @@ export class FeedListComponent implements OnInit {
   getFeed(){
     this.httpService.getFeed(this.userService.getUser().id, {page: this.lastPage}).subscribe(actions => {
       this.lastPage === 0 ? this.actions = actions : this.actions.concat(actions);
+      this.nothingToShow = (this.actions == null || this.actions.length === 0);
     });
   }
 

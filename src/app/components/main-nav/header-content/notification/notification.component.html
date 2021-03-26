@@ -8,6 +8,7 @@
         <span class="label">Notifications</span>
       </div>
       <mat-list style="width: 100%">
+        <p class="nothingToShow" *ngIf="nothingToShow">Nothing To Show Yet</p>
         <mat-list-item  *ngFor="let notification of notifications" [class]="notification.dirty ? 'dirtyNotificationItem' : 'notDirtyNotificationItem'">
           <app-notification-item [notification]="notification" style="width: 100%; height: 100%;"></app-notification-item>
         </mat-list-item>

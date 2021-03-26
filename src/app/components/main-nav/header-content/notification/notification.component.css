@@ -50,5 +50,10 @@ div.mat-list-item {
   width: 100%;
 }
 
+.nothingToShow {
+  font-size: 70%;
+  margin: 10px;
+}
+
 
 

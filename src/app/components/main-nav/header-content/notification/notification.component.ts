@@ -17,6 +17,7 @@ export class NotificationComponent implements OnInit, AfterViewInit {
   notificationIds: Array<string>;
   seenCounter: number;
   user: User;
+  nothingToShow = false;
 
   constructor(private userService: UserService, private httpService: HttpService) { }
 
@@ -38,12 +39,12 @@ export class NotificationComponent implements OnInit, AfterViewInit {
 
   getNotifications(){
     this.httpService.getNotifications({userId: this.user.id}).subscribe(notifications => {
-      console.log(notifications)
       if (notifications != null) {
         this.notifications = notifications;
         this.getNotificationIds();
         this.badgeVisibility();
       }
+      this.nothingToShow = (this.notifications == null || this.notifications.length === 0);
     });
   }
 
