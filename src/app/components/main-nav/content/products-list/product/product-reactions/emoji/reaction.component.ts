@@ -41,7 +41,7 @@ export class ReactionComponent implements OnInit {
         this.clickedColor = 'saddlebrown';
         break;
       case ReactionsEnum.INTERESTED:
-        this.clickedColor = 'yellow';
+        this.clickedColor = 'blue';
         break;
       case ReactionsEnum.LOVED:
         this.clickedColor = 'red';

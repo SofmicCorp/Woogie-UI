@@ -47,7 +47,7 @@ export class UserComponent implements OnInit {
         this.reactionColor = 'saddlebrown';
         break;
       case ReactionsEnum.INTERESTED:
-        this.reactionColor = 'yellow';
+        this.reactionColor = 'blue';
         break;
       case ReactionsEnum.LOVED:
         this.reactionColor = 'red';
