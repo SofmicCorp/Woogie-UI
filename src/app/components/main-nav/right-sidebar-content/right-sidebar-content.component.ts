@@ -37,13 +37,13 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 export class RightSidebarContentComponent implements OnInit {
 
-  selectedValue: string;
   myForm: FormGroup;
   sortOptions: Array<{}>;
   conditionOptions: Array<{}>;
   minPrice: '';
   maxPrice: '';
   state = 'out';
+  filters = false;
 
   constructor(private searchService: SearchService) {
   }
@@ -114,6 +114,14 @@ export class RightSidebarContentComponent implements OnInit {
 
   onAnimate() {
     this.state === 'in' ? this.state = 'out' : this.state = 'in';
+  }
+
+  animationDone($event) {
+    this.filters = !(this.state === 'out');
+  }
+
+  animationStart($event) {
+    this.filters = this.state === 'in';
   }
 
   showFilters() {

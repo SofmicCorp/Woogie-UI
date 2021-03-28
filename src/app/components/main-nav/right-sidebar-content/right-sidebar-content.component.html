@@ -4,10 +4,10 @@
   </button>
 </div>
 
-<div [@filtersAnimation]="state">
+<div [@filtersAnimation]="state" (@filtersAnimation.done)="animationDone($event)" (@filtersAnimation.start)="animationStart($event)">
 <h4>Sort & Filters</h4>
 
-<form [formGroup]="myForm">
+<form [formGroup]="myForm" *ngIf="filters">
 
   <mat-form-field appearance="fill">
     <mat-label>Sort</mat-label>
