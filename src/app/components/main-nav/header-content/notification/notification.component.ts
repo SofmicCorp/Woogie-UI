@@ -64,6 +64,7 @@ export class NotificationComponent implements OnInit, AfterViewInit {
   }
 
   onClick() {
+    this.getNotifications();
     this.hidden = true;
     this.seenCounter = 0;
     this.showDropDown = !this.showDropDown;
