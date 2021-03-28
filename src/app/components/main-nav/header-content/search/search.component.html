@@ -1,4 +1,4 @@
-<form class="search-form" [formGroup]="myForm">
+<form class="search-form" [formGroup]="myForm" (submit)="onSearchIconClick()">
 
     <mat-form-field appearance="outline" class="searchBar">
       <input type="text" placeholder="Search.." matInput formControlName="q" (click)="onSearchInputClick()">
@@ -11,7 +11,5 @@
         <mat-button-toggle value="PEOPLE" (change)="onToggleChange($event.value)">People</mat-button-toggle>
       </mat-button-toggle-group>
     </div>
-
-<!--  <mat-icon class="filterIcon">filter_alt</mat-icon>-->
 
 </form>
