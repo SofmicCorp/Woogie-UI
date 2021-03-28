@@ -49,3 +49,9 @@ img.mat-list-avatar.userImage{
 .emoji {
   margin-right: 5px;
 }
+
+.lockWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
