@@ -1,0 +1,22 @@
+
+.loginDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 40%;
+  height: 100%;
+}
+
+.loginButton{
+  margin-top: 20px;
+  font-size: 14px !important;
+}
+
+.logo{
+  height: 100px;
+}
+
+.owlImg {
+  width: 20%;
+}

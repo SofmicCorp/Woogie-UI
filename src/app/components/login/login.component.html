@@ -1,1 +1,21 @@
-<button mat-raised-button color="primary" (click)="onClick()" > Login with google </button>
+
+<mat-grid-list cols="5" rowHeight="100%">
+  <mat-grid-tile [colspan]="2">
+    <div class="loginDiv">
+      <img src="assets/svg/logo.svg" class="logo">
+      <br>
+      <img class="owlImg" src='assets/img/woogie_owl.png' >
+      <br>
+      <button mat-raised-button color="primary" class="loginButton" (click)="onClick()" >
+        <mat-icon [svgIcon]="'googleIcon'"></mat-icon>
+        Sign in
+      </button>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="3">
+    <img src="assets/img/login_photo.png"
+         srcset="assets/img/login_photo@2x.png 2x,
+             assets/img/login_photo@3x.png 3x"
+         class="img">
+  </mat-grid-tile>
+</mat-grid-list>
