@@ -28,11 +28,11 @@ export class ProductComponent implements OnInit {
   feedHandler(){
     if (this.action != null){
       const usersKeys = Object.keys(this.action.users);
+      this.feedUserName = this.action.users[usersKeys[0]];
       if (usersKeys.length === 1){
-        this.feedUserName = this.action.users[usersKeys[0]];
         this.actionStr = ' reacted on this product';
       }else if (usersKeys.length > 1){
-        this.actionStr = ' and '  + (usersKeys.length - 1) + ' reacted on this product';
+        this.actionStr = ' and '  + (usersKeys.length - 1) + ' more of your followings reacted on this product';
       }
     }
   }

@@ -70,8 +70,8 @@ export class UserComponent implements OnInit {
   feedHandler(){
     if (this.action != null){
       const usersKeys = Object.keys(this.action.users);
+      this.feedUserName = this.action.users[usersKeys[0]];
       if (usersKeys.length === 1){
-        this.feedUserName = this.action.users[usersKeys[0]];
         this.actionStr = ' started to follow ';
       }else if (usersKeys.length > 1){
         this.actionStr = ' and '  + (usersKeys.length - 1) + ' others started to follow ';
