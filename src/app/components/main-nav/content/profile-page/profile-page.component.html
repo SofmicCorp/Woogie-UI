@@ -54,6 +54,11 @@
 </mat-tab-group>
 
 <div *ngIf="user.status != 'active' && !isMyProfile" class="lockWrapper">
-  <mat-icon>lock</mat-icon>
-  You are not following {{user.fullName}}, ask him!
+  <div class="lockIconWrapper">
+    <mat-icon class="lockIcon">lock</mat-icon>
+  </div>
+  <div class="lockPWrapper">
+    <p class="bold">This Account Is Private</p>
+    <p>Follow this account to see their reactions</p>
+  </div>
 </div>

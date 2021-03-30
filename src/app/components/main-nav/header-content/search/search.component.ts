@@ -31,6 +31,7 @@ export class SearchComponent implements OnInit {
     this.myForm = new FormGroup({
       q: new FormControl(null, Validators.required),
       sort: new FormControl(null),
+      filter: new FormControl(null),
       userId: new FormControl(this.userService.getUser().id),
       page: new FormControl(0),
       limit: new FormControl(General.usersLimit),
@@ -56,6 +57,13 @@ export class SearchComponent implements OnInit {
           : this.myForm.addControl('filter', new FormControl(filtersStr === '' ? null : filtersStr));
       }
     });
+
+    this.userService.userBehaviorSubject.subscribe(user => {
+      if (user != null) {
+        this.myForm.patchValue({userId: user.id});
+      }
+    });
+
   }
 
   onToggleChange(value: string){

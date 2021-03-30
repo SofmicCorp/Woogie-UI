@@ -54,4 +54,30 @@ img.mat-list-avatar.userImage{
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 20%;
 }
+
+.lockIconWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lockIcon {
+  font-size: 60px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+}
+
+.lockPWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 13px;
+  padding-top: 10px;
+  font-size: 20px;
+}
+

@@ -7,6 +7,7 @@ import {iconSvg} from '../../../../../constants/icons-svg';
 import {MatIconRegistry} from "@angular/material/icon";
 import {DomSanitizer} from "@angular/platform-browser";
 import {ReactionsEnum} from "../../../../../classes/reaction/reactions-enum";
+import {UserService} from '../../../../../services/user.service';
 
 const HATED = iconSvg.hated;
 const LOVED = iconSvg.loved;
@@ -27,8 +28,9 @@ export class UserComponent implements OnInit {
   mutualFollowingUsersStr: string;
   feedUserName: string;
   reactionColor: string;
+  myUserId: string;
 
-  constructor(private router: Router, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+  constructor(private router: Router, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private userService: UserService) {
     iconRegistry.addSvgIconLiteral('hated', sanitizer.bypassSecurityTrustHtml(HATED));
     iconRegistry.addSvgIconLiteral('loved', sanitizer.bypassSecurityTrustHtml(LOVED));
     iconRegistry.addSvgIconLiteral('interested', sanitizer.bypassSecurityTrustHtml(INTERESTED));
@@ -36,6 +38,7 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.myUserId = this.userService.getUser().id;
     this.mutualFollowingUsersHandler();
     this.feedHandler();
 

@@ -13,7 +13,7 @@
       <p *ngIf="mutualFollowingUsersStr != null" class="mutualFollowingUsers">{{mutualFollowingUsersStr}}</p>
     </div>
     <div class="item3">
-      <app-follow-button [user]="user"></app-follow-button>
+      <app-follow-button [user]="user" *ngIf="myUserId != user.id"></app-follow-button>
     </div>
   </div>
 </div>

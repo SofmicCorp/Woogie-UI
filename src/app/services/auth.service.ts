@@ -20,7 +20,6 @@ export class AuthService {
   constructor(private authService: SocialAuthService, private httpService: HttpService, userService: UserService, private router: Router) {
     this.authService.authState.subscribe((user) => {
       if (user != null){
-        console.log(user);
         this.isLoggedIn = true;
         this.isLoggedInBehaviorSubject.next(this.isLoggedIn);
         this.idToken = user.idToken;
@@ -49,7 +48,6 @@ export class AuthService {
   signInWithGoogle() {
     try {
       this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(socialUser => {
-        console.log('here4');
         if (socialUser != null) {
           this.router.navigate(['/'  + WoogieFrontRoutes.home]);
         }else{
@@ -57,7 +55,6 @@ export class AuthService {
         }
       });
     } catch (e) {
-      console.log('here4');
       this.router.navigate(['/' + WoogieFrontRoutes.login]);
     }
   }

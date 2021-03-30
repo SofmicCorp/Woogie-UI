@@ -5,6 +5,7 @@ import {Reaction} from '../../../../../classes/reaction/reaction';
 import {ReactionsEnum} from '../../../../../classes/reaction/reactions-enum';
 import {UserService} from '../../../../../services/user.service';
 import {Action} from '../../../../../classes/feed/action';
+import {retailImgPaths} from '../../../../../constants/retail-img-paths';
 
 @Component({
   selector: 'app-product',
@@ -18,10 +19,12 @@ export class ProductComponent implements OnInit {
   @Input() action: Action;
   feedUserName: string;
   actionStr: string;
+  retailImgPaths: {};
 
   constructor(private httpService: HttpService, private userService: UserService) { }
 
   ngOnInit(): void {
+    this.retailImgPaths = retailImgPaths;
     this.feedHandler();
   }
 

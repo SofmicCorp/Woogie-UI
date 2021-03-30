@@ -2,7 +2,7 @@
   <p class="feed" *ngIf="isFeed"><span class="feedBold">{{feedUserName}}</span>{{actionStr}}</p>
   <hr class="solid" *ngIf="isFeed">
   <div class="grid-container">
-    <div class="item1" (click)="onClick(product.itemHref)"><img class="retailImage" src="../../../../../../assets/img/ebay_img.png" ></div>
+    <div class="item1" (click)="onClick(product.itemHref)"><img class="retailImage" src="{{retailImgPaths[product.retailName]}}" ></div>
     <div class="item2" (click)="onClick(product.itemHref)"><img src="{{product.image}}" class="productImage"></div>
     <div class="item3" (click)="onClick(product.itemHref)">
       <p class="productName" (click)="onClick(product.itemHref)">{{product.productName}}</p>

@@ -23,6 +23,7 @@ export class ProductsListComponent implements OnInit {
   searchSubscription(){
     this.searchService.products.subscribe(products => {
       if (products != null) {
+        console.log(products);
         if (products.shouldInitList){
           this.products = products.products;
           return;
