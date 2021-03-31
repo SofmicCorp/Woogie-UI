@@ -1,7 +1,6 @@
 <div class="emoji-container" (click)="onClick()"
      [matTooltip]="reactionType" [matTooltipPosition]="'below'"
      aria-label="Button that displays a tooltip in various positions">
-  <!--  <span class="inline"><img src="{{imgPath}}" class="reactionImage"></span>-->
   <span class="inline">
     <mat-icon [svgIcon]="reactionType" class="clicked" [ngStyle]="{color: clickedColor}" *ngIf="reactionsStats.active && reactionsStats.type == reactionType">{{null}}</mat-icon>
     <mat-icon [svgIcon]="reactionType" class="unClicked"  *ngIf="!(reactionsStats.active && reactionsStats.type == reactionType)">{{null}}</mat-icon>

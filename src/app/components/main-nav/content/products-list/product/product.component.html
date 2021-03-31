@@ -1,16 +1,25 @@
 <div class="product">
-  <p class="feed" *ngIf="isFeed"><span class="feedBold">{{feedUserName}}</span>{{actionStr}}</p>
-  <hr class="solid" *ngIf="isFeed">
-  <div class="grid-container">
-    <div class="item1" (click)="onClick(product.itemHref)"><img class="retailImage" src="{{retailImgPaths[product.retailName]}}" ></div>
-    <div class="item2" (click)="onClick(product.itemHref)"><img src="{{product.image}}" class="productImage"></div>
-    <div class="item3" (click)="onClick(product.itemHref)">
-      <p class="productName" (click)="onClick(product.itemHref)">{{product.productName}}</p>
-      <p (click)="onClick(product.itemHref)">{{product.totalPrice + "$"}}</p>
-      <p (click)="onClick(product.itemHref)">{{product.shippingCost == 0 ? "Free Shipping" : ''}}</p>
+
+  <div class="feed-container" *ngIf="isFeed">
+    <p class="feed" ><span class="feedBold">{{feedUserName}}</span>{{actionStr}}</p>
+    <hr class="solid">
+  </div>
+
+  <div class="product-container">
+
+    <div class="img-container" (click)="onClick(product.itemHref)">
+      <img src="{{product.image}}" class="productImage">
     </div>
-    <div class="item5">
-      <app-product-stats [reactionsStats]="product.reactions" [retailId]="product.retailId" [retailName]="product.retailName" (createReaction)="createReaction($event)" (inactiveReaction)="inactiveReaction()"></app-product-stats>
+
+    <div class="product-detail-container">
+      <div class="productName-and-retailImg-container" (click)="onClick(product.itemHref)">
+        <p class="productName" (click)="onClick(product.itemHref)">{{product.productName}}</p>
+        <img class="retailImage" src="{{retailImgPaths[product.retailName]}}">
+      </div>
+        <p (click)="onClick(product.itemHref)">{{product.totalPrice + "$"}}</p>
+        <p (click)="onClick(product.itemHref)">{{product.shippingCost == 0 ? "Free Shipping" : ''}}</p>
+        <app-product-stats class="product-stats" [reactionsStats]="product.reactions" [retailId]="product.retailId" [retailName]="product.retailName" (createReaction)="createReaction($event)" (inactiveReaction)="inactiveReaction()"></app-product-stats>
     </div>
+
   </div>
 </div>
