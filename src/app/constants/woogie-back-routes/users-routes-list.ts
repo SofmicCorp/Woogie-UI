@@ -9,4 +9,5 @@ export const usersRoutesList = {
   followStats: '/stats/follow',
   userFollowing: '/connections/following',
   userFollowers: '/connections/followers',
+  score: '/score'
 };

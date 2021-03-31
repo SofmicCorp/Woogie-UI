@@ -21,6 +21,10 @@ export class HttpService {
     return this.http.get<Action[]>(environment.woogieBackUrl  + usersRoutesList.baseUsers + urlParam +  usersRoutesList.feed, {params});
   }
 
+  addUserScore(urlParam: any, body: {follow_id: string, score: number}){
+    return this.http.put<any>(environment.woogieBackUrl  + usersRoutesList.baseUsers + urlParam +  usersRoutesList.feed + usersRoutesList.score, body);
+  }
+
   // Products
   searchProducts(params: any){
     return this.http.get<Product[]>(environment.woogieBackUrl + productsRoutesList.searchProducts, {params});

@@ -48,12 +48,14 @@ export class ProfilePageComponent implements OnInit {
   initProfilePage(){
     this.userService.userBehaviorSubject.subscribe(user => {
       if (user != null) {
-        console.log('initProfilePage', user)
         if (this.router.url.endsWith(WoogieFrontRoutes.myProfile)) {
           this.userId = user.id.toString();
           this.isMyProfile = true;
+        } else if (this.router.url.endsWith(user.id)){
+          this.router.navigate(['/'  + WoogieFrontRoutes.home + '/' +  WoogieFrontRoutes.profile, WoogieFrontRoutes.myProfile]);
         } else {
           this.userId = this.activatedRoute.snapshot.paramMap.get('id');
+          this.addUserScore(user);
         }
         this.getUserWithFollowingDetails();
         this.products = [];
@@ -64,7 +66,6 @@ export class ProfilePageComponent implements OnInit {
   }
 
   getUserWithFollowingDetails(){
-    console.log('this.userId', this.userId)
     this.httpService.getUserWithFollowingDetails(this.userId, {id: this.userService.getUser().id}).subscribe(user => {
       if (user != null) {
         this.user = user;
@@ -105,4 +106,7 @@ export class ProfilePageComponent implements OnInit {
     });
   }
 
+  private addUserScore(user: User) {
+    this.httpService.addUserScore(user.id, {follow_id: this.userId, score: 5}).subscribe(res => {});
+  }
 }

@@ -1,13 +1,7 @@
 
-.emoji-container{
-  width: 100%;
-  position: relative;
-  cursor: pointer;
-  /*margin-top: 20px;*/
-}
+
 
 .reactionImage{
-  /*padding-top: 5px;*/
   width: 29px;
   object-fit: contain;
 }
