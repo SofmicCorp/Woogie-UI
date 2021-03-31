@@ -44,7 +44,6 @@ export class HttpService {
   }
 
   // Users
-
   sign(body: any){
     return this.http.post<User>(environment.woogieBackUrl + usersRoutesList.baseUsers + usersRoutesList.sign, body);
   }
@@ -75,6 +74,14 @@ export class HttpService {
 
   getUserFollowStat(urlParam: string){
     return this.http.get<{numOfFollowing: string, numOfFollowers: string}>(environment.woogieBackUrl + usersRoutesList.baseUsers + urlParam + usersRoutesList.followStats);
+  }
+
+  getUserFollowing(urlParam, params: any){
+    return this.http.get<{total: number, limit: number, offset: number, users: User[]}>(environment.woogieBackUrl + usersRoutesList.baseUsers + urlParam + usersRoutesList.userFollowing, {params});
+  }
+
+  getUserFollowers(urlParam, params: any){
+    return this.http.get<{total: number, limit: number, offset: number, users: User[]}>(environment.woogieBackUrl + usersRoutesList.baseUsers + urlParam + usersRoutesList.userFollowers, {params});
   }
 
   // Notifications

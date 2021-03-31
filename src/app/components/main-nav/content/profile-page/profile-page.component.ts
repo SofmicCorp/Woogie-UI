@@ -9,6 +9,8 @@ import {Product} from '../../../../classes/product/product';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserService} from '../../../../services/user.service';
 import {WoogieFrontRoutes} from '../../../../constants/woogie-front-routes';
+import {UsersDialogComponent} from '../../../shared/reactions-dialog/users-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
 
 const HATED = iconSvg.hated;
 const LOVED = iconSvg.loved;
@@ -29,7 +31,7 @@ export class ProfilePageComponent implements OnInit {
   products: Product[];
   isMyProfile: boolean;
 
-  constructor(private httpService: HttpService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private router: Router, private activatedRoute: ActivatedRoute, private userService: UserService) {
+  constructor(public dialog: MatDialog, private httpService: HttpService, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private router: Router, private activatedRoute: ActivatedRoute, private userService: UserService) {
     iconRegistry.addSvgIconLiteral('hated', sanitizer.bypassSecurityTrustHtml(HATED));
     iconRegistry.addSvgIconLiteral('loved', sanitizer.bypassSecurityTrustHtml(LOVED));
     iconRegistry.addSvgIconLiteral('interested', sanitizer.bypassSecurityTrustHtml(INTERESTED));
@@ -77,9 +79,29 @@ export class ProfilePageComponent implements OnInit {
     this.getProductsByType();
   }
 
+  onClickFollowers() {
+    this.httpService.getUserFollowers(this.userId, {}).subscribe(res => {
+      this.openDialog('Followers', res.users);
+    });
+  }
+
+  onClickFollowings() {
+    this.httpService.getUserFollowing(this.userId, {}).subscribe(res => {
+      this.openDialog('Followings', res.users);
+    });
+  }
+
   getProductsByType(){
     this.httpService.getAllReactionsByUserAndType({id: this.userService.getUser().id, userId: this.userId, type: this.selectedType, offset: 0, limit: 25}).subscribe(products => {
       this.products = products;
+    });
+  }
+
+  openDialog(header, users){
+    const dialogRef = this.dialog.open(UsersDialogComponent, {
+      width: '700px',
+      panelClass: 'reactionsDialog',
+      data: {header, users}
     });
   }
 

@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ReactionsStats} from '../../../../../../classes/reaction/reactions-stats';
 import {ReactionsEnum} from '../../../../../../classes/reaction/reactions-enum';
-import {ReactionsDialogComponent} from '../../../../../shared/reactions-dialog/reactions-dialog.component';
+import {UsersDialogComponent} from '../../../../../shared/reactions-dialog/users-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import {HttpService} from '../../../../../../services/http.service';
 import {UserService} from '../../../../../../services/user.service';
@@ -67,10 +67,10 @@ export class ProductReactionsComponent implements OnInit {
         this.users.map(user => {
           user.id = user.userId;
         });
-        const dialogRef = this.dialog.open(ReactionsDialogComponent, {
+        const dialogRef = this.dialog.open(UsersDialogComponent, {
           width: '700px',
           panelClass: 'reactionsDialog',
-          data: this.users
+          data: {header: 'Reactions', users: this.users}
         });
 
       });

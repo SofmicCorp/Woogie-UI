@@ -53,7 +53,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
 import { NotificationItemComponent } from './components/main-nav/header-content/notification/notification-item/notification-item.component';
 import {MainInterceptorService} from './services/interceptors/main-interceptor.service';
 import {ScrollingModule} from '@angular/cdk/scrolling';
-import {ReactionsDialogComponent} from './components/shared/reactions-dialog/reactions-dialog.component';
+import {UsersDialogComponent} from './components/shared/reactions-dialog/users-dialog.component';
 import { ProfilePageComponent } from './components/main-nav/content/profile-page/profile-page.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -83,7 +83,7 @@ import { LoginComponent } from './components/login/login.component';
     RightSidebarContentComponent,
     FeedListComponent,
     NotificationItemComponent,
-    ReactionsDialogComponent,
+    UsersDialogComponent,
     ProfilePageComponent,
     LoginComponent,
   ],

@@ -9,8 +9,8 @@
   <div class="userDetails" *ngIf="user != null">
     <p class="fullName">{{user.fullName}}</p>
     <div class="numOfFollowersAndFollowings">
-      <p class="followStat" *ngIf="user != null"><span class="bold">{{user.numOfFollowers}}</span> followers</p>
-      <p class="followStat" *ngIf="user != null"><span class="bold">{{user.numOfFollowing}}</span> following</p>
+      <p class="followStat" *ngIf="user != null" (click)="onClickFollowers()"><span class="bold">{{user.numOfFollowers}}</span> followers</p>
+      <p class="followStat" *ngIf="user != null" (click)="onClickFollowings()"><span class="bold">{{user.numOfFollowing}}</span> following</p>
     </div>
     <button mat-raised-button class="editProfileButton" *ngIf="isMyProfile">Edit Profile</button>
     <app-follow-button [user]="user" *ngIf="!isMyProfile"></app-follow-button>
@@ -18,7 +18,7 @@
 
 </div>
 
-<mat-tab-group mat-align-tabs="center" (selectedTabChange)="onTabClick($event)" *ngIf="user.status === 'active' || isMyProfile">
+<mat-tab-group mat-align-tabs="center" (selectedTabChange)="onTabClick($event)" *ngIf="user != null && (user.status === 'active' || isMyProfile)">
 
   <mat-tab>
     <ng-template mat-tab-label>
@@ -53,7 +53,7 @@
   </mat-tab>
 </mat-tab-group>
 
-<div *ngIf="user.status != 'active' && !isMyProfile" class="lockWrapper">
+<div *ngIf="user != null && (user.status != 'active' && !isMyProfile)" class="lockWrapper">
   <div class="lockIconWrapper">
     <mat-icon class="lockIcon">lock</mat-icon>
   </div>

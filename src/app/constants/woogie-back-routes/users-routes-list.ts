@@ -7,4 +7,6 @@ export const usersRoutesList = {
   confirmUser: '/connections/confirm',
   unfollowUser: '/connections/unfollow',
   followStats: '/stats/follow',
+  userFollowing: '/connections/following',
+  userFollowers: '/connections/followers',
 };
