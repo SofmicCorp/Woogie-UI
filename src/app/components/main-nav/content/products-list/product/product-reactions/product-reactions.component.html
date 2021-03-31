@@ -1,4 +1,5 @@
 <p class="numOfReactions" (click)="onClickNumOfReactions()">{{numOfReactions}} Reactions</p>
+<hr class="solid">
 <div class="flex-container">
   <app-emoji [reactionType]="'loved'" (clickFather)="onClicked($event)" [reactionsStats]="reactionsStats"></app-emoji>
   <app-emoji [reactionType]="'hated'" (clickFather)="onClicked($event)" [reactionsStats]="reactionsStats"></app-emoji>
