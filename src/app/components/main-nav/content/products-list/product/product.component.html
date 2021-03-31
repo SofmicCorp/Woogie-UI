@@ -5,13 +5,13 @@
     <hr class="solid">
   </div>
 
-  <div class="product-container">
+  <div class="product-container" [ngStyle]="isFeed ? {height: '80%'} : {height: '100%'}">
 
     <div class="img-container" (click)="onClick(product.itemHref)">
       <img src="{{product.image}}" class="productImage">
     </div>
 
-    <div class="product-detail-container">
+    <div class="product-detail-container" [ngStyle]="isFeed ? {paddingTop: '0'} : {paddingTop: '10px'}">
       <div class="productName-and-retailImg-container" (click)="onClick(product.itemHref)">
         <p class="productName" (click)="onClick(product.itemHref)">{{product.productName}}</p>
         <img class="retailImage" src="{{retailImgPaths[product.retailName]}}">
