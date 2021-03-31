@@ -12,7 +12,6 @@
       <p class="followStat" *ngIf="user != null" (click)="onClickFollowers()"><span class="bold">{{user.numOfFollowers}}</span> followers</p>
       <p class="followStat" *ngIf="user != null" (click)="onClickFollowings()"><span class="bold">{{user.numOfFollowing}}</span> following</p>
     </div>
-    <button mat-raised-button class="editProfileButton" *ngIf="isMyProfile">Edit Profile</button>
     <app-follow-button [user]="user" *ngIf="!isMyProfile"></app-follow-button>
   </div>
 

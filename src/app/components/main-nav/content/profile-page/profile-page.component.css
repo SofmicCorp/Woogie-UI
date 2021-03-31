@@ -18,7 +18,7 @@ img.mat-list-avatar.userImage{
 }
 
 .userDetails {
-  margin-top: 0px;
+  margin-top: 10px;
   margin-left: 80px;
 }
 
@@ -32,7 +32,7 @@ img.mat-list-avatar.userImage{
 }
 
 .followStat{
-  font-size: medium;
+  font-size: large;
   margin-right: 20px;
   cursor: pointer;
 }
