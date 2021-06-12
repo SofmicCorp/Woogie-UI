@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  woogieBackUrl: 'https://woogie-back-310308.uc.r.appspot.com/',
+  woogieBackUrl: 'https://secret-lowlands-26651.herokuapp.com/',
 };
