@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClick() {
-    this.authService.signInWithGoogle();
+  async onClick() {
+    await this.authService.signInWithGoogle();
   }
 }
