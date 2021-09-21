@@ -3,6 +3,9 @@
 ![image](https://user-images.githubusercontent.com/47902941/134149730-82120dea-2a7a-439f-9d6e-00ae0cb8ea2e.png)
 ![image](https://user-images.githubusercontent.com/47902941/134150220-b6decd54-f955-4826-a70d-93f4c7387fc2.png)
 
+## Documantaion
+https://docs.google.com/document/d/1sJ8KU-ssqFYo3e---cKGdOu_1TIuoA06b9gkxBu7xfM/edit?usp=sharing
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
 
 ## Development server
