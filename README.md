@@ -1,5 +1,7 @@
 # Woogie
 
+![image](https://user-images.githubusercontent.com/47902941/134149730-82120dea-2a7a-439f-9d6e-00ae0cb8ea2e.png)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
 
 ## Development server
